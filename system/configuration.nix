@@ -77,15 +77,8 @@
   #  Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ivan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "seat" ]; # Enable ‘sudo’ for the user.
-    #   packages = with pkgs; [
-    #     firefox
-    #     thunderbird
-    #   ];
+    extraGroups = [ "wheel" "video" ];
   };
-
-  environment.variables = { EDITOR = "nvim"; };
-  environment.shellAliases = { vim = "nvim"; };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget

@@ -147,5 +147,9 @@ in
       startup = [{ command = "autotiling"; always = true; }];
     };
   };
+
+  programs.tmux = {
+    enable = true;
+  };
 }
 
