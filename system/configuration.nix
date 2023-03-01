@@ -180,7 +180,7 @@
     description = "Disables an acpi device that on its own wakes up pc from hibernation";
     script = ''
       cat /proc/acpi/wakeup
-      echo PTXH > /proc/acpi/wakeup 
+      # echo PTXH > /proc/acpi/wakeup 
       echo "disabled acpi device, error: " $?
       cat /proc/acpi/wakeup
     '';
@@ -191,6 +191,10 @@
 
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "ivan" ];
+
+  systemd.tmpfiles.rules = [
+    "w /proc/acpi/wakeup - - - - PTXH"
+  ];
 }
 
 #/dev/sda2: UUID="d18b0f68-1450-40c1-9ad6-7d931a781b6a" TYPE="swap" PARTUUID="ba7e1f3b-5d29-ec43-bd93-ab0572e8a35f"
