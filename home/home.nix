@@ -1,4 +1,13 @@
 { pkgs, lib, ... }:
+let
+  apply_home = pkgs.writeShellScriptBin
+    "apply-home"
+    (builtins.readFile ../apply-home.sh);
+
+  apply_system = pkgs.writeShellScriptBin
+    "apply-system"
+    (builtins.readFile ../apply-system.sh);
+in
 {
   imports = [
     ./i3.nix
@@ -10,7 +19,7 @@
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
-  home.packages = with pkgs; [ nil xclip ];
+  home.packages = with pkgs; [ nil xclip apply_home apply_system];
 
   programs.git = {
     enable = true;
