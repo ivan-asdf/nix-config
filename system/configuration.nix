@@ -29,7 +29,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.resumeDevice = "/dev/disk/by-uuid/d18b0f68-1450-40c1-9ad6-7d931a781b6a";
+  boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.initrd.systemd.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -89,7 +89,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     firefox
-    kitty
     fira-code
     # for i3
     autotiling
@@ -106,7 +105,6 @@
     rnix-lsp
     nixpkgs-fmt
     # whims
-    screenfetch
     neofetch
     ranger
     # proprietery use stuff
@@ -189,5 +187,3 @@
     "w /proc/acpi/wakeup - - - - PTXH"
   ];
 }
-
-#/dev/sda2: UUID="d18b0f68-1450-40c1-9ad6-7d931a781b6a" TYPE="swap" PARTUUID="ba7e1f3b-5d29-ec43-bd93-ab0572e8a35f"
