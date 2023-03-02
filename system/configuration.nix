@@ -19,11 +19,11 @@
       options = [ "x-systemd.automount" "noauto" ];
     };
 
-  fileSystems."/home/ivan/wd_hdd" = {
-    device = "/dev/disk/by-uuid/ffe9851f-5233-4ecb-980c-8bdd3696d127";
-    fsType = "ext4";
-    options = [ "x-systemd.automount" "noauto" ];
-  };
+  #fileSystems."/home/ivan/wd_hdd" = {
+    #device = "/dev/disk/by-uuid/ffe9851f-5233-4ecb-980c-8bdd3696d127";
+    #fsType = "ext4";
+    #options = [ "x-systemd.automount" "noauto" ];
+  #};
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
