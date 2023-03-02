@@ -162,6 +162,8 @@
     jetbrains-mono
     iosevka
     hack-font
+    source-code-pro
+    (nerdfonts.override { fonts = [ "Hack" "FiraCode" ]; })
   ];
 
   systemd.services.foo = {
