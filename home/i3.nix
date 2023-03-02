@@ -109,12 +109,17 @@ in
   programs.kitty = {
     enable = true;
     #font.name = "Source Code Pro";
-    #font.name = "Fira Code";
+    font.name = "Fira Code";
     #font.name = "Jetbrains Mono";
-    font.name = "Hack";
+    #font.name = "Hack";
     #font.size = 16;
     theme = "Catppuccin-Latte";
-    settings = { confirm_os_window_close = 0; };
+    settings = {
+      confirm_os_window_close = 0;
+      sync_to_monitor = "no";
+      repaint_delay  = 3;
+      input_delay = 1;
+    };
   };
 }
 
