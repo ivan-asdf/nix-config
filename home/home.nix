@@ -84,6 +84,8 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
+  home.packages = with pkgs; [ nil xclip ];
+
   programs.git = {
     enable = true;
     userName = "Ivan";
@@ -116,8 +118,6 @@ in
   #enable = true;
   #source = "${home.sessionPath}.dotfiles/nvim";
   #};
-
-  home.packages = [ pkgs.nil ];
 
   xsession.windowManager.i3 = {
     enable = true;
