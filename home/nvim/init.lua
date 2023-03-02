@@ -25,9 +25,7 @@ require('nvim-web-devicons').setup()
 --require("toggleterm").setup{
 	--open_mapping = [[<C-t>]]
 --}
-require('vacuumline').setup({
-	theme = require('vacuumline.theme.nord')
-})
+require('lualine').setup()
 
 -- vim.g.nvim_tree_show_icons = {git = 1, folders =  0, files = 0, folder_arrows = 0}
 function _G.set_terminal_keymaps()

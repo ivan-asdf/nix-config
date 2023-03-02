@@ -109,6 +109,9 @@ in
     vimAlias = true;
 
     extraConfig = ":luafile ~/.config/nvim/init.lua";
+    plugins = with pkgs.vimPlugins; [
+      lualine-nvim
+    ];
   };
 
   xdg.configFile.nvim = {

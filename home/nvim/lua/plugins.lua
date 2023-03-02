@@ -38,10 +38,6 @@ return require('packer').startup(function()
   use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use {'konapun/vacuumline.nvim', requires = {
-    'glepnir/galaxyline.nvim', branch = 'main',
-    'kyazdani42/nvim-web-devicons', opt = true
-  }, config = function() require('vacuumline').setup() end} -- Add this line to use defaults; otherwise, call `setup` with your config as described below wherever you configure your plugins
 
   if packer_bootstrap then
     require('packer').sync()
