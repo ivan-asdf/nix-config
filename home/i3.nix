@@ -76,6 +76,10 @@ let
   };
 in
 {
+  imports = [
+    ./polybar
+  ];
+
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -111,6 +115,7 @@ in
       bars = [ ];
       # remove titlebars
       window.titlebar = false;
+      window.border = 5;
       # use rofi
       #menu = "\${pkgs.rofi}/bin/rofi;
     };
@@ -120,10 +125,10 @@ in
 
   programs.kitty = {
     enable = true;
-    #font.name = "Source Code Pro";
-    font.name = "Fira Code";
+    #font.name = "Source Code Pro"󰓄
+    font.name = "Fira Code Regular Nerd Font Complete";
     #font.name = "Jetbrains Mono";
-    #font.name = "Hack";
+    #font.name = "Hack Regular Nerd Font Complete";
     #font.size = 16;
     theme = "Catppuccin-Latte";
     settings = {

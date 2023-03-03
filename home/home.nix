@@ -19,7 +19,16 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
-  home.packages = with pkgs; [ nil xclip apply_home apply_system ];
+  home.packages = with pkgs; [
+    # my pkgs
+    apply_home
+    apply_system
+    # nvim 
+    nil
+    xclip
+    # etc
+    cloc
+  ];
 
   programs.git = {
     enable = true;
@@ -60,12 +69,6 @@ in
   programs.tmux = {
     enable = true;
     mouse = true;
-  };
-
-  services.polybar = {
-    enable = true;
-    script = "polybar";
-    #config = ./polybar.ini;
   };
 }
 
