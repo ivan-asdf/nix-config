@@ -101,10 +101,22 @@ in
         "${mod}+Shift+l" = "move right";
       };
 
-      startup = [{ command = "autotiling"; always = true; }];
+      startup = [
+        { command = "autotiling"; always = true; }
+        { command = "systemctl --user restart polybar"; always = true; notification = false; }
+      ];
       defaultWorkspace = "workspace number 1";
+
+      # remove i3 bar
+      bars = [ ];
+      # remove titlebars
+      window.titlebar = false;
+      # use rofi
+      #menu = "\${pkgs.rofi}/bin/rofi;
     };
   };
+
+  #programs.rofi.enable = true;
 
   programs.kitty = {
     enable = true;
@@ -117,7 +129,7 @@ in
     settings = {
       confirm_os_window_close = 0;
       sync_to_monitor = "no";
-      repaint_delay  = 3;
+      repaint_delay = 3;
       input_delay = 1;
     };
   };
