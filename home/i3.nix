@@ -2,7 +2,7 @@
 let
 
   mod = "Mod4";
-  terminal = "kitty";
+  terminal = "alacritty";
   menu = "dmenu_run";
   default = {
     "${mod}+Return" = "exec ${terminal}";
@@ -134,6 +134,14 @@ in
       repaint_delay = 3;
       input_delay = 1;
     };
+  };
+
+  programs.alacritty = {
+    enable = true;
+  };
+
+  xdg.configFile."alacritty/alacritty.yml" = {
+    source = ./alacritty/alacritty.yml;
   };
 }
 

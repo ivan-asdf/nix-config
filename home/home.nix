@@ -17,6 +17,12 @@ let
       cp $src/'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/nerd/
     ";
   };
+
+  python-packages = p: with p; [
+    toml
+    requests
+  ];
+  python_with_packages = (pkgs.python3Full.withPackages python-packages);
 in
 {
   imports = [
@@ -29,6 +35,10 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
+  home.shellAliases = {
+    ls = "exa --icons";
+  };
+
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     # my pkgs
@@ -40,15 +50,21 @@ in
     # etc
     cloc
     unzip
-    font-manager
+    tree
+    # bash improvements
+    exa
     # dev
     nodejs
+    nodePackages.pyright
+    python_with_packages
+    rustc
+    cargo
+    # big gui software
+    font-manager
+    cinnamon.nemo
     # fonts
     nerd_font
-    # bash imporvements
-    exa
-    # temp
-    alacritty
+    # temp test
     konsole
     wezterm
   ];

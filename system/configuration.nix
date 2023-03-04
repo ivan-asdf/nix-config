@@ -99,7 +99,6 @@
     gcc
     go
     gopls
-    python3Full
     rnix-lsp
     nixpkgs-fmt
     # whims

@@ -3,3 +3,5 @@ eval "$(starship init bash)"
 
 HISTCONTROL=ignoredups:erasedups
 HISTFILE=~/.cache/bash/history
+
+PATH=$PATH:$HOME/go/bin
