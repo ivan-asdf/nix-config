@@ -97,6 +97,7 @@ in
     extraConfig = ":luafile ~/.config/nvim/init.lua";
     plugins = with pkgs.vimPlugins; [
       lualine-nvim
+      #nvim-treesitter.withAllGrammars
     ];
   };
 
@@ -108,6 +109,14 @@ in
   programs.tmux = {
     enable = true;
     mouse = true;
+    baseIndex = 1;
+    extraConfig = ''
+      set-option -sg escape-time 10
+      set-option -g focus-events on
+
+      set -g default-terminal "screen-256color"
+      set -ag terminal-overrides ",xterm-256color:RGB"
+    '';
   };
 }
 
