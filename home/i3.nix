@@ -124,7 +124,7 @@ in
   #programs.rofi.enable = true;
 
   programs.kitty = {
-    enable = true;
+    enable = false;
     font.name = "Hack";
     #font.name = "Hack Nerd Font";
     theme = "Catppuccin-Latte";
