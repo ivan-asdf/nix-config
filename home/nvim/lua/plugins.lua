@@ -39,6 +39,8 @@ return require('packer').startup(function()
   use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 
+  use 'brenoprata10/nvim-highlight-colors'
+
   if packer_bootstrap then
     require('packer').sync()
   end

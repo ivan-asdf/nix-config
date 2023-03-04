@@ -28,6 +28,8 @@ in
     xclip
     # etc
     cloc
+    unzip
+    font-manager
   ];
 
   programs.git = {

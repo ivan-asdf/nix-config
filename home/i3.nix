@@ -126,7 +126,7 @@ in
   programs.kitty = {
     enable = true;
     #font.name = "Source Code Pro"󰓄
-    font.name = "Fira Code Regular Nerd Font Complete";
+    font.name = "FiraCode Nerd Font";
     #font.name = "Jetbrains Mono";
     #font.name = "Hack Regular Nerd Font Complete";
     #font.size = 16;

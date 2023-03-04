@@ -10,6 +10,7 @@ end
 -- require('onedark').setup {
 	 -- style = 'light'
 --}
+require('nvim-highlight-colors').setup {}
 
 require("nvim-tree").setup({
 	view = {
