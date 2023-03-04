@@ -14,13 +14,9 @@
     settings = {
       "bar/bar1" = {
         font = [
-          "FiraCode Nerd Font;3"
+          "Symbols Nerd Font:size=16;4"
+          "Hack:size=12;4"
           "Noto Color Emoji:scale=8;2"
-          "Font Awesome 5 Free"
-          "FontAwesome6Free"
-          "FontAwesome6Free Solid"
-          "FontAwesome6Brands"
-          "fontello;3"
         ];
         width = "100%";
         height = 29;
@@ -58,16 +54,18 @@
       "module/volume" = {
         type = "internal/pulseaudio";
         format.volume = "<ramp-volume> <label-volume>";
-        label.muted.text = "🔇";
-        ramp.volume = [ "🔈" "🔉" "🔊" ];
+        #label.muted.text = "🔇";
+        #ramp.volume = [ "🔈" "🔉" "🔊" ];
+        label.muted.text = "󰸈 -- ";
+        ramp.volume = [ "󰕿" "󰖀" "󰕾" ];
         click.right = "pavucontrol &";
       };
       "module/cpu" = {
         type = "internal/cpu";
         interval = 0.5;
         format = "<label> <ramp-coreload>";
-        label = " %percentage%%";
-        label-warn = " %percentage%%";
+        label = "󰍛 %percentage%%";
+        label-warn = "󰍛 %percentage%%";
         #ramp-coreload-spacing = 1;
         ramp-coreload = [ " " "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
         ramp-coreload-spacing = 0;

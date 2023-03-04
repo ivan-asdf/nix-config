@@ -125,11 +125,8 @@ in
 
   programs.kitty = {
     enable = true;
-    #font.name = "Source Code Pro"󰓄
-    font.name = "FiraCode Nerd Font";
-    #font.name = "Jetbrains Mono";
-    #font.name = "Hack Regular Nerd Font Complete";
-    #font.size = 16;
+    font.name = "Hack";
+    #font.name = "Hack Nerd Font";
     theme = "Catppuccin-Latte";
     settings = {
       confirm_os_window_close = 0;

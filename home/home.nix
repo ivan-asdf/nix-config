@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, ... }:
 let
   apply_home = pkgs.writeShellScriptBin
     "apply-home"
@@ -7,6 +7,16 @@ let
   apply_system = pkgs.writeShellScriptBin
     "apply-system"
     (builtins.readFile ../apply-system.sh);
+
+  nerd_font = pkgs.stdenv.mkDerivation {
+    name = "Nerd Font";
+    src = ./fonts;
+    installPhase = "
+      mkdir -p $out/share/fonts/nerd
+      echo 'HELLO'
+      cp $src/'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/nerd/
+    ";
+  };
 in
 {
   imports = [
@@ -19,6 +29,7 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
+  fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
     # my pkgs
     apply_home
@@ -30,6 +41,16 @@ in
     cloc
     unzip
     font-manager
+    # dev
+    nodejs
+    # fonts
+    nerd_font
+    # bash imporvements
+    exa
+    # temp
+    alacritty
+    konsole
+    wezterm
   ];
 
   programs.git = {

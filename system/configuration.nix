@@ -20,9 +20,9 @@
     };
 
   #fileSystems."/home/ivan/wd_hdd" = {
-    #device = "/dev/disk/by-uuid/ffe9851f-5233-4ecb-980c-8bdd3696d127";
-    #fsType = "ext4";
-    #options = [ "x-systemd.automount" "noauto" ];
+  #device = "/dev/disk/by-uuid/ffe9851f-5233-4ecb-980c-8bdd3696d127";
+  #fsType = "ext4";
+  #options = [ "x-systemd.automount" "noauto" ];
   #};
 
   # Use the systemd-boot EFI boot loader.
@@ -156,15 +156,34 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-  fonts.fonts = with pkgs; [
-    fira-code
-    fira-code-symbols
-    jetbrains-mono
-    iosevka
-    hack-font
-    source-code-pro
-    (nerdfonts.override { fonts = [ "Hack" "FiraCode" ]; })
-  ];
+  fonts = {
+    fonts = with pkgs; [
+      #fira-code
+      #fira-code-symbols
+      #jetbrains-mono
+      #source-code-pro
+      hack-font
+      noto-fonts-emoji
+      #(nerdfonts.override { fonts = [ "Hack" ]; })
+    ];
+    enableDefaultFonts = false;
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Material Design Icons" "Symbols Nerd Font" ];
+        sansSerif = [ ];
+        serif = [ ];
+        #emoji = ["Noto Color Emoji"];
+      };
+      /*localConf = ''
+        <alias>
+          <family>Hack</family>
+          <prefer>
+            <family>Symbols Nerd Font</family>
+          </prefer>
+        </alias>
+      '';*/
+    };
+  };
 
   systemd.services.foo = {
     enable = true;
