@@ -117,6 +117,7 @@
   hardware.opengl.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
+  hardware.nvidia.powerManagement.enable = true;
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;

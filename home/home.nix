@@ -37,6 +37,7 @@ in
 
   home.shellAliases = {
     ls = "exa --icons";
+    grep = "grep --color=always";
   };
 
   fonts.fontconfig.enable = true;
@@ -51,6 +52,7 @@ in
     cloc
     unzip
     tree
+    zathura
     # bash improvements
     exa
     # dev
@@ -59,6 +61,14 @@ in
     python_with_packages
     rustc
     cargo
+    swift
+    sourcekit-lsp
+    clang-tools
+    # BUILD POLYBAR
+    #cmake
+    #gnumake
+    sphinx
+    pkg-config
     # big gui software
     font-manager
     cinnamon.nemo

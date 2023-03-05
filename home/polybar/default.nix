@@ -9,7 +9,7 @@
     };
 
     config = ./latte.ini;
-    script = "polybar bar1";
+    script = "polybar bar1 >> /home/ivan/.cache/polybar.log";
     #extraConfig = builtins.readFile ./polybar/latte.init;
     settings = {
       "bar/bar1" = {

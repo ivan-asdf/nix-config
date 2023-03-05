@@ -99,15 +99,6 @@ local lsp_flags = {
 	-- This is the default in Nvim 0.7+
 	debounce_text_changes = 150,
 }
-require'lspconfig'.sourcekit.setup{}
-require('lspconfig')['pyright'].setup{
-	on_attach = on_attach,
-	flags = lsp_flags,
-}
-require('lspconfig')['tsserver'].setup{
-	on_attach = on_attach,
-	flags = lsp_flags,
-}
 require('lspconfig')['rust_analyzer'].setup{
 	on_attach = on_attach,
 	flags = lsp_flags,
@@ -116,11 +107,6 @@ require('lspconfig')['rust_analyzer'].setup{
 		["rust-analyzer"] = {}
 	}
 }
-require('lspconfig')['gopls'].setup{
-	on_attach = on_attach,
-	flags = lsp_flags,
-}
-
 -- css ls and snipets
 --Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -142,6 +128,14 @@ require'lspconfig'.nil_ls.setup {
     },
   },
 }
+
+local servers = { 'pyright', 'gopls', 'nil_ls', 'cssls', 'clangd' }
+for _, lsp in pairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+	  flags = lsp_flags
+  }
+end
 
 -- luasnip setup
 local luasnip = require 'luasnip'
