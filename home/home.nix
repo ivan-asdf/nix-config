@@ -26,7 +26,7 @@ let
 in
 {
   imports = [
-    ./i3.nix
+    ./i3/i3.nix
   ];
 
   home.stateVersion = "22.11";

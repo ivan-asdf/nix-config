@@ -77,7 +77,7 @@ let
 in
 {
   imports = [
-    ./polybar
+    ../polybar
   ];
 
   xsession.windowManager.i3 = {
@@ -117,10 +117,13 @@ in
       bars = [ ];
       # remove titlebars
       window.titlebar = false;
-      window.border = 5;
+      window.border = 3;
+      gaps.outer = 13;
+      gaps.inner = 10;
       # use rofi
       #menu = "\${pkgs.rofi}/bin/rofi;
     };
+    extraConfig = builtins.readFile ./colors_catppuccin;
   };
 
   #programs.rofi.enable = true;
@@ -143,7 +146,7 @@ in
   };
 
   xdg.configFile."alacritty/alacritty.yml" = {
-    source = ./alacritty/alacritty.yml;
+    source = ../alacritty/alacritty.yml;
   };
 }
 
