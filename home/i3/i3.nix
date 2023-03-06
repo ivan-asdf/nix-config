@@ -110,6 +110,7 @@ in
         #{ command = "systemctl --user start polybar"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
         { command = "pkill polybar; polybar"; always = true; notification = false; }
+        { command = "pkill picom; picom"; always = true; notification = false; }
       ];
       defaultWorkspace = "workspace number 1";
 
@@ -119,6 +120,7 @@ in
       window.titlebar = false;
       window.border = 3;
       gaps.outer = 13;
+      gaps.top = 29 + 13;
       gaps.inner = 10;
       # use rofi
       #menu = "\${pkgs.rofi}/bin/rofi;

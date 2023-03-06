@@ -18,15 +18,21 @@
           "Hack:size=12;4"
           "Noto Color Emoji:scale=8;2"
         ];
-        width = "100%";
+        # to make it centered -> detach from i3
+        override-redirect = true;
+        # to hide it when fullscreen
+        wm-restack = "i3";
+        width = "98%";
+        offset-x = "1%";
         height = 29;
         padding-right = 1;
 
         background = "\${colors.base}";
         foreground = "\${colors.text}";
 
-        border-size = 5;
-        border-color = "\${colors.crust}";
+        #border-size = 5;
+        #border-color = "\${colors.crust}";
+        radius = 10;
 
         seperator = "|";
         module-margin = 2;

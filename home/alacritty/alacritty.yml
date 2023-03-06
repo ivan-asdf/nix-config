@@ -13,7 +13,9 @@ font:
 env:
   TERM: xterm-256color
 
-#background_opacity: 1
+window:
+  opacity: 1.0
+
 colors:
     # Default colors
     primary:
