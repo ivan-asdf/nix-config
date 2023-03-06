@@ -30,20 +30,20 @@
         background = "\${colors.base}";
         foreground = "\${colors.text}";
 
-        #border-size = 5;
-        #border-color = "\${colors.crust}";
-        #radius = 10;
+        tray-position = "right";
 
         seperator = "|";
         module-margin = 2;
         modules-left = "i3";
         modules-center = "xwindow";
-        modules-right = "cpu volume";
+        modules-right = "temperature cpu volume date";
       };
       "module/i3" = {
         type = "internal/i3";
         label-focused-background = "\${colors.overlay0}";
         label-unfocused-background = "\${colors.surface0}";
+        label-urgent-background = "\${colors.maroon}";
+        #label-visible-background = "\${colors.maroon}";
         #label-separator = " ";
         #label-separator-padding = 1;
         workspace-label = "%index%";
@@ -53,6 +53,8 @@
         label-visible = "\${self.workspace-label}";
         label-focused-padding = 2;
         label-unfocused-padding = 1;
+        label-urgent-padding = 1;
+        #label-visible-padding = 1;
       };
       "module/xwindow" = {
         type = "internal/xwindow";
@@ -69,12 +71,30 @@
       "module/cpu" = {
         type = "internal/cpu";
         interval = 0.5;
-        format = "<label> <ramp-coreload>";
+        warn-percentage = "90";
         label = "󰍛 %percentage%%";
         label-warn = "󰍛 %percentage%%";
-        #ramp-coreload-spacing = 1;
         ramp-coreload = [ " " "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
         ramp-coreload-spacing = 0;
+        format = "<label> <ramp-coreload>";
+        format-warn = "<label-warn> <ramp-coreload>";
+        format-warn-foreground = "\${colors.maroon}";
+      };
+      "module/date" = {
+        type = "internal/date";
+        date = "%y-%m-%d%";
+        time = "%H:%M:%S";
+        label = " %date%  %time%";
+      };
+      "module/temperature" = {
+        type = "internal/temperature";
+        hwmon-path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input";
+        base-temperature = 30;
+        warn-temperature = 70;
+        ramp = ["" "" "" "" ""];
+        format = "<ramp> <label>";
+        format-warn = "<ramp> <label-warn>";
+        format-warn-foreground = "\${colors.maroon}";
       };
     };
   };

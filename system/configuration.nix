@@ -88,9 +88,6 @@
     wget
     firefox
     fira-code
-    # for i3
-    autotiling
-    flameshot
     # basic utilities
     htop
     file

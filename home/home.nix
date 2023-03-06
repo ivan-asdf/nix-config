@@ -45,10 +45,13 @@ in
     # my pkgs
     apply_home
     apply_system
+    # for i3
+    autotiling
     # nvim 
     nil
     xclip
     # etc
+    flameshot
     cloc
     unzip
     tree
