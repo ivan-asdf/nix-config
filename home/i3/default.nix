@@ -1,6 +1,5 @@
 { pkgs, lib, ... }:
 let
-
   mod = "Mod4";
   terminal = "alacritty";
   #menu = "dmenu_run";
@@ -77,10 +76,7 @@ let
   };
 in
 {
-  imports = [
-    ../polybar
-  ];
-
+  home.packages = with pkgs; [ autotiling ];
   xsession.windowManager.i3 = {
     enable = true;
     config = {
@@ -143,14 +139,6 @@ in
       repaint_delay = 3;
       input_delay = 1;
     };
-  };
-
-  programs.alacritty = {
-    enable = true;
-  };
-
-  xdg.configFile."alacritty/alacritty.yml" = {
-    source = ../alacritty/alacritty.yml;
   };
 
   xdg.configFile."feh/wallpapers" = {

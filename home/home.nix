@@ -1,23 +1,5 @@
 { pkgs, ... }:
 let
-  apply_home = pkgs.writeShellScriptBin
-    "apply-home"
-    (builtins.readFile ../apply-home.sh);
-
-  apply_system = pkgs.writeShellScriptBin
-    "apply-system"
-    (builtins.readFile ../apply-system.sh);
-
-  nerd_font = pkgs.stdenv.mkDerivation {
-    name = "Nerd Font";
-    src = ./fonts;
-    installPhase = "
-      mkdir -p $out/share/fonts/nerd
-      echo 'HELLO'
-      cp $src/'Symbols-2048-em Nerd Font Complete.ttf' $out/share/fonts/nerd/
-    ";
-  };
-
   python-packages = p: with p; [
     toml
     requests
@@ -26,7 +8,11 @@ let
 in
 {
   imports = [
-    ./i3/i3.nix
+    ./i3
+    ./services
+    ./programs
+    ./scripts
+    ./fonts
   ];
 
   home.stateVersion = "22.11";
@@ -42,14 +28,6 @@ in
 
   fonts.fontconfig.enable = true;
   home.packages = with pkgs; [
-    # my pkgs
-    apply_home
-    apply_system
-    # for i3
-    autotiling
-    # nvim 
-    nil
-    xclip
     # etc
     flameshot
     cloc
@@ -77,11 +55,6 @@ in
     # big gui software
     font-manager
     cinnamon.nemo
-    # fonts
-    nerd_font
-    # temp test
-    konsole
-    wezterm
   ];
 
   programs.git = {
@@ -89,36 +62,6 @@ in
     userName = "Ivan";
     userEmail = "ivan.asdf0@gmail.com";
     extraConfig.init.defaultBranch = "master";
-  };
-
-  programs.bash = {
-    enable = true;
-    bashrcExtra = builtins.readFile ./bashrc;
-  };
-
-  programs.starship = {
-    enable = true;
-  };
-  xdg.configFile."starship.toml" = {
-    source = ./starship.toml;
-  };
-
-  programs.neovim = {
-    enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-
-    extraConfig = ":luafile ~/.config/nvim/init.lua";
-    plugins = with pkgs.vimPlugins; [
-      lualine-nvim
-      #nvim-treesitter.withAllGrammars
-    ];
-  };
-
-  xdg.configFile.nvim = {
-    source = ./nvim;
-    recursive = true;
   };
 
   programs.tmux = {
@@ -132,38 +75,6 @@ in
       set -g default-terminal "screen-256color"
       set -ag terminal-overrides ",xterm-256color:RGB"
     '';
-  };
-
-  services.picom = {
-    enable = true;
-    backend = "glx";
-    opacityRules = [
-      # use: xprop | grep "CLASS"  to get window name
-      "96:class_g = 'Alacritty' && focused"
-      "90:class_g = 'Alacritty' && !focused"
-    ];
-    settings = {
-      blur = {
-        method = "dual_kawase";
-        strength = 3;
-        #size = 10;
-        #deviation = 5.0;
-      };
-    };
-    fade = true;
-    fadeDelta = 5;
-    shadow = true;
-    #shadowOpacity = 1;
-    #shadow-offset-x = 10;
-  };
-
-  programs.rofi = {
-    enable = true;
-    theme = "catppuccin";
-  };
-
-  xdg.configFile."rofi/catppuccin.rasi" = {
-    source = ./rofi_theme_catppuccin.rasi;
   };
 }
 
