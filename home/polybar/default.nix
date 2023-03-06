@@ -22,8 +22,8 @@
         override-redirect = true;
         # to hide it when fullscreen
         wm-restack = "i3";
-        width = "98%";
-        offset-x = "1%";
+        width = "100%";
+        #offset-x = "1%";
         height = 29;
         padding-right = 1;
 
@@ -32,7 +32,7 @@
 
         #border-size = 5;
         #border-color = "\${colors.crust}";
-        radius = 10;
+        #radius = 10;
 
         seperator = "|";
         module-margin = 2;

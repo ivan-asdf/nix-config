@@ -52,9 +52,11 @@ in
     cloc
     unzip
     tree
+    feh
     zathura
-    # bash improvements
-    exa
+    # default utils improvements
+    exa # ls
+    bat # cat
     # dev
     nodejs
     nodePackages.pyright
@@ -150,6 +152,15 @@ in
     shadow = true;
     #shadowOpacity = 1;
     #shadow-offset-x = 10;
+  };
+
+  programs.rofi = {
+    enable = true;
+    theme = "catppuccin";
+  };
+
+  xdg.configFile."rofi/catppuccin.rasi" = {
+    source = ./rofi_theme_catppuccin.rasi;
   };
 }
 
