@@ -30,13 +30,13 @@
         background = "\${colors.base}";
         foreground = "\${colors.text}";
 
-        tray-position = "right";
+        tray-position = "center";
 
         seperator = "|";
         module-margin = 2;
-        modules-left = "i3";
-        modules-center = "xwindow";
-        modules-right = "temperature cpu volume date";
+        modules-left = "i3 xwindow";
+        modules-center = "";
+        modules-right = "filesystem memory temperature cpu volume date";
       };
       "module/i3" = {
         type = "internal/i3";
@@ -71,9 +71,10 @@
       "module/cpu" = {
         type = "internal/cpu";
         interval = 0.5;
+        # maybe instead colors for ramps?!
         warn-percentage = "90";
-        label = "󰍛 %percentage%%";
-        label-warn = "󰍛 %percentage%%";
+        label = "󰍛 %percentage:2%%";
+        label-warn = "󰍛 %percentage:2%%";
         ramp-coreload = [ " " "▁" "▂" "▃" "▄" "▅" "▆" "▇" "█" ];
         ramp-coreload-spacing = 0;
         format = "<label> <ramp-coreload>";
@@ -82,7 +83,8 @@
       };
       "module/date" = {
         type = "internal/date";
-        date = "%y-%m-%d%";
+        #date = "%y-%m-%d%";
+        date = "%a %d %b %Y";
         time = "%H:%M:%S";
         label = " %date%  %time%";
       };
@@ -91,9 +93,27 @@
         hwmon-path = "/sys/devices/pci0000:00/0000:00:18.3/hwmon/hwmon1/temp1_input";
         base-temperature = 30;
         warn-temperature = 70;
-        ramp = ["" "" "" "" ""];
+        ramp = [ "" "" "" "" "" ];
         format = "<ramp> <label>";
         format-warn = "<ramp> <label-warn>";
+        format-warn-foreground = "\${colors.maroon}";
+      };
+      "module/memory" = {
+        type = "internal/memory";
+        warn-percentage = 90;
+        label = " %percentage_used%%"; # (font awesome 6)
+        label-warn = " %percentage_used%%";
+        format-warn = "<label-warn>";
+        #label-warn-foreground = "\${colors.maroon}";
+        format-warn-foreground = "\${colors.maroon}";
+      };
+      "module/filesystem" = {
+        type = "internal/fs";
+        warn-percentage = 80;
+        mount = [ "/" ];
+        label-mounted = "󰋊 %percentage_used%%";
+        label-warn = "󰋊 %percentage_used%%";
+        format-warn = "<label-warn>";
         format-warn-foreground = "\${colors.maroon}";
       };
     };

@@ -108,9 +108,9 @@ in
 
       startup = [
         { command = "autotiling"; always = true; }
-        #{ command = "systemctl --user start polybar"; always = true; notification = false; }
+        { command = "systemctl --user restart polybar"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
-        { command = "pkill polybar; polybar"; always = true; notification = false; }
+        #{ command = "pkill polybar; polybar"; always = true; notification = false; }
         { command = "pkill picom; picom"; always = true; notification = false; }
         {
           command = "feh --bg-fill --randomize ~/.config/feh/wallpapers/*";
@@ -131,8 +131,6 @@ in
     };
     extraConfig = builtins.readFile ./colors_catppuccin;
   };
-
-  #programs.rofi.enable = true;
 
   programs.kitty = {
     enable = false;
