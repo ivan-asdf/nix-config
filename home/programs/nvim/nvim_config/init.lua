@@ -12,8 +12,74 @@ end
 --}
 require('nvim-highlight-colors').setup {}
 
+require('gitsigns').setup()
+
+-- required for opening of dirs automatically
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+local function open_nvim_tree(data)
+
+  -- buffer is a directory
+  local directory = vim.fn.isdirectory(data.file) == 1
+
+  if not directory then
+    return
+  end
+
+  -- change to the directory
+  vim.cmd.cd(data.file)
+
+  -- open the tree
+  require("nvim-tree.api").tree.open()
+end
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
+-- have explored all optionns upto nvim-tree.trash
 require("nvim-tree").setup({
+  disable_netrw = true,
+  hijack_cursor = true,
+  sync_root_with_cwd = true;
+  sort_by = "case_sensetive",
+  update_focused_file = {
+    enable = true;
+  },
+  git = {
+    enable = true;
+    show_on_dirs = true;
+    show_on_open_dirs = false;
+  },
+  modified = {
+    enable = true;
+    show_on_dirs = true;
+    show_on_open_dirs = false;
+  },
+  renderer = {
+    group_empty = true,
+    highlight_git = true,
+    add_trailing = true,
+    highlight_opened_files = "name";
+    indent_markers = {
+      enable = true,
+      inline_arrows = false,
+      icons = {
+        item = "┝",
+        corner = "┕",
+        --item = "┣",
+        --corner = "┗",
+        --edge =  "┃"
+        --item = "├"
+      },
+    },
+    icons = {
+      show = {
+        folder_arrow = false
+      },
+    }
+  },
+  filters = {
+    dotfiles = true,
+  },
 	view = {
+    --number = true;
 		mappings = {
 			list = {
 				{ key = "l", action = "edit" },

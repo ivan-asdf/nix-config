@@ -24,7 +24,8 @@ vim.o.termguicolors = true
 vim.cmd.colorscheme 'catppuccin'
 -- vim.cmd([[set splitbelow]])
 -- vim.cmd([[termwinsize=10x0]])
-vim.cmd([[highlight iCursor guifg=pink guibg=red]])
+vim.o.cursorline = true
+vim.cmd([[highlight iCursor guifg=pink guibg=red]]) -- what dis do?
 vim.cmd([[set guicursor=i:block-iCursor]])
 vim.cmd([[set guicursor+=i:blinkon1-iCursor/iCursor]])
 

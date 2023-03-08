@@ -8,6 +8,7 @@
     extraConfig = ":luafile ~/.config/nvim/init.lua";
     plugins = with pkgs.vimPlugins; [
       lualine-nvim
+      gitsigns-nvim
       #nvim-treesitter.withAllGrammars
     ];
   };
