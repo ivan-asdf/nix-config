@@ -87,7 +87,7 @@ in
       keybindings = default // {
         "${mod}+p" = "exec ${menu}";
         "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
-        "${mod}+Shift+x" = "exec sh -c '${pkgs.i3lock}/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
+        "${mod}+Shift+x" = "exec sh -c '/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
 
         # Focus
         "${mod}+h" = "focus left";
@@ -104,8 +104,9 @@ in
 
       startup = [
         { command = "autotiling"; always = true; }
-        { command = "systemctl --user restart polybar"; always = true; notification = false; }
-        #{ command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
+        #runing with systemd - it restarts alone from time to time receives (signal 15)
+        #{ command = "systemctl --user restart polybar"; always = true; notification = false; }
+        { command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar"; always = true; notification = false; }
         { command = "pkill picom; picom"; always = true; notification = false; }
         {

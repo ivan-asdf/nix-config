@@ -33,11 +33,14 @@ in
     cloc
     unzip
     tree
+    pstree
+    jq
     feh
     zathura
     # default utils improvements
     exa # ls
     bat # cat
+    fd # find
     # dev
     nodejs
     nodePackages.pyright
@@ -47,6 +50,7 @@ in
     swift
     sourcekit-lsp
     clang-tools
+    gnumake
     # BUILD POLYBAR
     #cmake
     #gnumake

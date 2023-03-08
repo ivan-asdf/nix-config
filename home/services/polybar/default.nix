@@ -84,7 +84,7 @@
       "module/date" = {
         type = "internal/date";
         #date = "%y-%m-%d%";
-        date = "%a %d %b %Y";
+        date = "%a %e %b %Y";
         time = "%H:%M:%S";
         label = " %date%  %time%";
       };
