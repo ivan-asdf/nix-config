@@ -42,6 +42,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end
   end
 })
+-- remap open horizontal and open vertical
+local function my_on_attach(bufnr)
+  local api = require('nvim-tree.api')
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
+  --api.config.mappings.default_on_attach(bufnr)
+  vim.keymap.set('n', 'v', api.node.open.vertical,                opts('Open: Vertical Split'))
+  -- replaces api.node.run.system
+  vim.keymap.set('n', 's', api.node.open.horizontal,              opts('Open: Horizontal Split'))
+end
 -- have explored all optionns upto nvim-tree.trash
 require("nvim-tree").setup({
   disable_netrw = true,
@@ -95,7 +106,11 @@ require("nvim-tree").setup({
 				{ key = "h", action = "close_node" },
 			}
 		}
-	}
+	},
+  diagnostics = {
+    enable = true
+  },
+  on_attach = my_on_attach
 })
 require('nvim-web-devicons').setup()
 --require("toggleterm").setup{
