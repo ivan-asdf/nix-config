@@ -27,15 +27,37 @@
   #};
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+    };
+    systemd-boot = {
+      enable = true;
+      consoleMode = "max";
+    };
+  };
+  #boot.loader.efi.canTouchEfiVariables = true;
 
   boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.initrd.systemd.enable = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  #boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  boot.plymouth.enable = true;
-  boot.plymouth.theme = "breeze";
+  /*
+  boot.loader = {
+    efi = {
+      canTouchEfiVariables = true;
+      efiSysMountPoint = "/boot/efi";
+    };
+    grub = {
+      enable = true;
+      device = "nodev";
+    };
+  };
+  */
+
+
+  #boot.plymouth.enable = true;
+  #boot.plymouth.theme = "breeze";
 
   networking.hostName = "pc";
   # Pick only one of the below networking options.
@@ -49,12 +71,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  #   useXkbConfig = true; # use xkbOptions in tty.
-  # };
+   i18n.defaultLocale = "en_US.UTF-8";
+   console = {
+     font = "Lat2-Terminus16";
+     #keyMap = "us";
+     useXkbConfig = true; # use xkbOptions in tty.
+   };
 
   # Enable the Plasma 5 Desktop Environment.
   #services.xserver.displayManager.sddm.enable = true;
@@ -87,6 +109,7 @@
     wget
     firefox
     # basic utilities
+    efibootmgr
     htop
     file
     unrar
@@ -145,17 +168,19 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-  systemd.services.foo = {
-    enable = true;
-    description = "Disables an acpi device that on its own wakes up pc from hibernation";
-    script = ''
+  /*
+      systemd.services.foo = {
+      enable = true;
+      description = "Disables an acpi device that on its own wakes up pc from hibernation";
+      script = ''
       cat /proc/acpi/wakeup
       # echo PTXH > /proc/acpi/wakeup 
       echo "disabled acpi device, error: " $?
       cat /proc/acpi/wakeup
-    '';
-    wantedBy = [ "multi-user.target" ]; # start after login
-  };
+      '';
+      wantedBy = [ "multi-user.target" ]; # start after login
+      };
+    */
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
