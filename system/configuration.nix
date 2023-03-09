@@ -9,7 +9,8 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      #./vim.nix
+      ./services
+      ./fonts
     ];
 
   fileSystems."/home/ivan/nfs" =
@@ -32,6 +33,9 @@
   boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.initrd.systemd.enable = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
+  boot.plymouth.enable = true;
+  boot.plymouth.theme = "breeze";
 
   networking.hostName = "pc";
   # Pick only one of the below networking options.
@@ -56,18 +60,13 @@
   #services.xserver.displayManager.sddm.enable = true;
   #services.xserver.desktopManager.plasma5.enable = true;
 
-
-  services.xserver = {
-    layout = "us,bg(phonetic)";
-    xkbOptions = "grp:alt_shift_toggle";
-  };
-
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
   hardware.pulseaudio.enable = true;
+  hardware.enableAllFirmware = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -87,7 +86,6 @@
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     firefox
-    fira-code
     # basic utilities
     htop
     file
@@ -109,18 +107,12 @@
 
   # security.polkit.enable = true;
 
-  nixpkgs.config.allowBroken = true;
+  #nixpkgs.config.allowBroken = true;
   nixpkgs.config.allowUnfree = true;
   hardware.opengl.enable = true;
-  services.xserver.videoDrivers = [ "nvidia" ];
+  #services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
   hardware.nvidia.powerManagement.enable = true;
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  # services.xserver.displayManager.xterm.enable = false;
-  services.xserver.displayManager.defaultSession = "none+i3";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -153,35 +145,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
-  fonts = {
-    fonts = with pkgs; [
-      #fira-code
-      #fira-code-symbols
-      #jetbrains-mono
-      #source-code-pro
-      hack-font
-      noto-fonts-emoji
-      #(nerdfonts.override { fonts = [ "Hack" ]; })
-    ];
-    enableDefaultFonts = false;
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "Material Design Icons" "Symbols Nerd Font" ];
-        sansSerif = [ ];
-        serif = [ ];
-        #emoji = ["Noto Color Emoji"];
-      };
-      /*localConf = ''
-        <alias>
-          <family>Hack</family>
-          <prefer>
-            <family>Symbols Nerd Font</family>
-          </prefer>
-        </alias>
-      '';*/
-    };
-  };
-
   systemd.services.foo = {
     enable = true;
     description = "Disables an acpi device that on its own wakes up pc from hibernation";

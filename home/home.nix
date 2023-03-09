@@ -21,6 +21,16 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
+  nixpkgs.config =
+    {
+      packageOverrides = pkgs: {
+        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
+          inherit pkgs;
+        };
+      };
+      allowUnfree = true;
+    };
+
   home.shellAliases = {
     ls = "exa --icons";
     grep = "grep --color=always";
