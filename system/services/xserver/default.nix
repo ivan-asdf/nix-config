@@ -6,9 +6,14 @@
       videoDrivers = [ "nvidia" ];
       windowManager.i3 = {
         enable = true;
-        extraPackages = [ pkgs.i3lock ];
+        extraPackages = [ ];
       };
       displayManager = {
+        # these go inside the xsession-wrapper
+        sessionCommands = ''
+          # default values 660 25
+          ${pkgs.xorg.xset}/bin/xset r rate 250 35
+        '';
         lightdm.greeters.mini = {
           enable = true;
           user = "ivan";
