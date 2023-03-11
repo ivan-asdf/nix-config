@@ -86,7 +86,8 @@ in
 
       keybindings = default // {
         "${mod}+p" = "exec ${menu}";
-        "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
+        "Print" = "exec flameshot full -c -p ~/.cache/screenshots/";
+        "Shift+Print" = "exec flameshot gui -c -p ~/.cache/screenshots/";
         "${mod}+Shift+x" = "exec betterlockscreen -l blur";
 
         # Focus
@@ -108,6 +109,7 @@ in
         #{ command = "systemctl --user restart polybar"; always = true; notification = false; }
         { command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar"; always = true; notification = false; }
+        { command = "mkdir ~/.cache/screenshots/ -p"; always = true; }
       ];
       defaultWorkspace = "workspace number 1";
 

@@ -53,6 +53,8 @@ in
     exa # ls
     bat # cat
     fd # find
+    duf # du
+    xcp # cp
     # dev
     nodejs
     nodePackages.pyright

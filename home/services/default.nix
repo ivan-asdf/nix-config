@@ -18,4 +18,8 @@
   suspend + hibernate
     they are systemd targets so just write a requiredBy=suspend unit
   */
+
+  services.dunst = {
+    enable = true;
+  };
 }

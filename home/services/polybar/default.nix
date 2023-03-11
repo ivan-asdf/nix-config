@@ -30,17 +30,18 @@
         background = "\${colors.base}";
         foreground = "\${colors.text}";
 
-        tray-position = "center";
+        tray-position = "left";
 
         seperator = "|";
         module-margin = 2;
-        modules-left = "i3 xwindow";
-        modules-center = "";
+        modules-left = "xwindow";
+        modules-center = "i3";
         modules-right = "filesystem memory temperature cpu volume date";
       };
       "module/i3" = {
         type = "internal/i3";
-        label-focused-background = "\${colors.overlay0}";
+        #label-focused-background = "\${colors.overlay0}";
+        label-focused-background = "\${colors.pink}";
         label-unfocused-background = "\${colors.surface0}";
         label-urgent-background = "\${colors.maroon}";
         #label-visible-background = "\${colors.maroon}";
