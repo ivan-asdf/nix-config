@@ -68,6 +68,7 @@ in
     sourcekit-lsp
     clang-tools
     gnumake
+    lua-language-server
     # BUILD POLYBAR
     #cmake
     #gnumake

@@ -219,7 +219,7 @@ require'lspconfig'.nil_ls.setup {
   },
 }
 
-local servers = { 'pyright', 'gopls', 'cssls', 'clangd' }
+local servers = { 'pyright', 'gopls', 'cssls', 'clangd', 'lua_ls'}
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,
