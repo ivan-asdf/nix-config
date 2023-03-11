@@ -105,27 +105,22 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # basic user-programs
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
     firefox
     # basic utilities
+    neovim
+    wget
     efibootmgr
     htop
     file
     unrar
+    unzip
+    pstree
+    tree
     # dev
     gcc
-    go
-    gopls
-    rnix-lsp
-    nixpkgs-fmt
     # whims
-    neofetch
+    tmux
     ranger
-    # proprietery use stuff
-    discord
-    # stuff
-    plymouth
   ];
 
   # security.polkit.enable = true;

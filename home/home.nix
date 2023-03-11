@@ -41,12 +41,10 @@ in
     # etc
     flameshot
     cloc
-    unzip
-    tree
-    pstree
     jq
     feh
     zathura
+    neofetch
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -61,14 +59,9 @@ in
     nodePackages.typescript-language-server
     python_with_packages
     rustc
-    rust-analyzer
-    rustfmt
     cargo
-    swift
-    sourcekit-lsp
-    clang-tools
+    go
     gnumake
-    lua-language-server
     # BUILD POLYBAR
     #cmake
     #gnumake
@@ -77,6 +70,8 @@ in
     # big gui software
     font-manager
     cinnamon.nemo
+    # proprietary stuff
+    discord
   ];
 
   home.pointerCursor = {

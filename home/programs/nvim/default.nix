@@ -5,11 +5,11 @@
     viAlias = true;
     vimAlias = true;
 
-    extraConfig = ":luafile ~/.config/nvim/init.lua";
+    #extraConfig = ":luafile ~/.config/nvim/init.lua";
     plugins = with pkgs.vimPlugins; [
       lualine-nvim
       gitsigns-nvim
-      #nvim-treesitter.withAllGrammars
+      #nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
     ];
   };
 
@@ -21,6 +21,12 @@
   home.packages = with pkgs; [
     xclip # to support copy to global clipboard register
     nil # nix language lsp
+    nixpkgs-fmt
+    lua-language-server
+    rust-analyzer
+    rustfmt
+    sourcekit-lsp # C++
+    gopls
   ];
 }
 
