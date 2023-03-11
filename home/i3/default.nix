@@ -87,7 +87,7 @@ in
       keybindings = default // {
         "${mod}+p" = "exec ${menu}";
         "${mod}+x" = "exec sh -c '${pkgs.maim}/bin/maim -s | xclip -selection clipboard -t image/png'";
-        "${mod}+Shift+x" = "exec sh -c '/bin/i3lock -c 222222 & sleep 5 && xset dpms force of'";
+        "${mod}+Shift+x" = "exec betterlockscreen -l blur";
 
         # Focus
         "${mod}+h" = "focus left";
@@ -108,12 +108,6 @@ in
         #{ command = "systemctl --user restart polybar"; always = true; notification = false; }
         { command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar"; always = true; notification = false; }
-        { command = "pkill picom; picom"; always = true; notification = false; }
-        {
-          command = "feh --bg-fill --randomize ~/.config/feh/wallpapers/*";
-          always = true;
-          notification = false;
-        }
       ];
       defaultWorkspace = "workspace number 1";
 
@@ -140,11 +134,6 @@ in
       repaint_delay = 3;
       input_delay = 1;
     };
-  };
-
-  xdg.configFile."feh/wallpapers" = {
-    source = ./wallpapers;
-    recursive = true;
   };
 }
 

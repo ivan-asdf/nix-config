@@ -47,6 +47,8 @@ in
     jq
     feh
     zathura
+    # locksr where to put?!?
+    betterlockscreen
     # default utils improvements
     exa # ls
     bat # cat
@@ -54,8 +56,11 @@ in
     # dev
     nodejs
     nodePackages.pyright
+    nodePackages.typescript-language-server
     python_with_packages
     rustc
+    rust-analyzer
+    rustfmt
     cargo
     swift
     sourcekit-lsp
