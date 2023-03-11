@@ -78,6 +78,26 @@ in
     cinnamon.nemo
   ];
 
+  home.pointerCursor = {
+    #package = pkgs.catppuccin-cursors.latteLight;
+    #name = "Catppuccin-Latte-Light-Cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
+    name = "Catppuccin-Mocha-Dark-Cursors";
+    #package = pkgs.catppuccin-cursors.lattePink;
+    #name = "Catppuccin-Latte-Pink-Cursors";
+    size = 24;
+    gtk.enable = true;
+  };
+  home.sessionVariables = {
+    #XCURSOR_THEME = "phinger-cursors";
+    XCURSOR_SIZE = "24";
+  };
+  gtk = {
+    gtk2.extraConfig = "gtk-cursor-theme-size=24";
+    gtk3.extraConfig."gtk-cursor-theme-size" = 24;
+    gtk4.extraConfig."gtk-cursor-theme-size" = 24;
+  };
+
   programs.git = {
     enable = true;
     userName = "Ivan";
