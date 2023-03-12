@@ -1,7 +1,20 @@
 #bindkey -e # enables emacs keybind
+# this is automaticaly included by nix
 #eval "$(starship init zsh)"
-#export TEST=31231
-#
+
+# highlight selection when cycling with Tab
+zstyle ':completion:*' menu select
+# use the vi navigation keys in menu completion
+zmodload zsh/complist
+bindkey -M menuselect 'h' vi-backward-char
+bindkey -M menuselect 'k' vi-up-line-or-history
+bindkey -M menuselect 'l' vi-forward-char
+bindkey -M menuselect 'j' vi-down-line-or-history
+
+# for the autosuggest cycle tru the entire sugestion not the local
+# by defualt you can you the forward key(C-f(emacs) or right arrow key)
+bindkey '^[[Z' autosuggest-accept
 
 # for auto-notify plugin
 export AUTO_NOTIFY_THRESHOLD=5
+

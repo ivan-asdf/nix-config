@@ -36,9 +36,7 @@
 
     initExtra = builtins.readFile ./zshrc;
     #TODO
-    # autosuggest accept key?
-    # vim navigate files plugn(autojump)
-    # tab selectiong highlighted donw
+    # auto-notify add exceptions
     # vim mode(not vi which cant delete in insert mode) + cursor collors change
     # syntax highlight themes
   };
