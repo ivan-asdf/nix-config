@@ -34,11 +34,11 @@
     ];
 
 
+    initExtraFirst = builtins.readFile ./catppuccin_latte-zsh-syntax-highlighting.zsh;
     initExtra = builtins.readFile ./zshrc;
     #TODO
     # auto-notify add exceptions
     # vim mode(not vi which cant delete in insert mode) + cursor collors change
-    # syntax highlight themes
   };
 
   # dependecy of auto-notify plugin
