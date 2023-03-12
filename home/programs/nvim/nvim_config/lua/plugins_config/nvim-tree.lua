@@ -31,9 +31,9 @@ local function my_on_attach(bufnr)
   local function opts(desc)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
-  --api.config.mappings.default_on_attach(bufnr)
+  api.config.mappings.default_on_attach(bufnr)
   vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
-  -- replaces api.node.run.system
+  -- replaces api.node.run.system default key
   vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
 end
 -- have explored all optionns upto nvim-tree.trash

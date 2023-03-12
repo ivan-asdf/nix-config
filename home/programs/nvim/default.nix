@@ -6,11 +6,11 @@
     vimAlias = true;
 
     #extraConfig = ":luafile ~/.config/nvim/init.lua";
-    plugins = with pkgs.vimPlugins; [
-      lualine-nvim
-      gitsigns-nvim
+    ##plugins = with pkgs.vimPlugins; [
+      #lualine-nvim
+      #gitsigns-nvim
       #nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
-    ];
+    #];
   };
 
   xdg.configFile.nvim = {

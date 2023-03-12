@@ -1,8 +1,10 @@
-require('plugins')
+require('manager.lazy')
+--require('manager.packer')
 require('options')
 require('maps')
 require('plugins_config.nvim-tree')
 require('plugins_config.nvim-treesitter')
+--require('plugins_config.toggleterm')
 
 -- require('onedark').setup {
 -- style = 'light'
