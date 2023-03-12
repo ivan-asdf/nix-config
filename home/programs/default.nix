@@ -4,6 +4,7 @@
     ./rofi
     ./alacritty
     ./bash
+    ./zsh
     ./firefox
   ];
 }

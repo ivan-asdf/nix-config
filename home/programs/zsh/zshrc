@@ -1,0 +1,7 @@
+#bindkey -e # enables emacs keybind
+#eval "$(starship init zsh)"
+#export TEST=31231
+#
+
+# for auto-notify plugin
+export AUTO_NOTIFY_THRESHOLD=5

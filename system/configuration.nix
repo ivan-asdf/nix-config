@@ -122,6 +122,8 @@
     tmux
     ranger
   ];
+  programs.zsh.enable = true;
+  users.users.ivan.shell = pkgs.zsh;
 
   # security.polkit.enable = true;
 
