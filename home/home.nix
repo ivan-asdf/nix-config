@@ -62,6 +62,7 @@ in
     cargo
     go
     gnumake
+    nix-prefetch-git
     # BUILD POLYBAR
     #cmake
     #gnumake

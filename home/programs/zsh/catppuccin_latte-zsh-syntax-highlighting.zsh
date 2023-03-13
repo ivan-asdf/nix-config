@@ -76,3 +76,19 @@ ZSH_HIGHLIGHT_STYLES[redirection]='fg=#4c4f69'
 ZSH_HIGHLIGHT_STYLES[arg0]='fg=#4c4f69'
 ZSH_HIGHLIGHT_STYLES[default]='fg=#4c4f69'
 ZSH_HIGHLIGHT_STYLES[cursor]='fg=#4c4f69'
+
+# EXTRA for zsh-vi-mode
+#ZVM_INSERT_MODE_CURSOR=$ZVM_CURSOR_BLOCK
+# The plugin will auto execute this zvm_config function
+zvm_config() {
+  ZVM_INSERT_MODE_CURSOR='\e\e]12;#4c4f69\a' # text
+  ZVM_NORMAL_MODE_CURSOR='\e\e]12;#dc8a78\a' # rosewater
+}
+
+# EXTRA for zsh-vim-mode(CURRENT USED)
+MODE_CURSOR_VIINS="#4c4f69 blinking block"
+#MODE_CURSOR_REPLACE="$MODE_CURSOR_VIINS #ff0000"
+#MODE_CURSOR_VICMD="green block"
+#MODE_CURSOR_SEARCH="#ff00ff steady underline"
+#MODE_CURSOR_VISUAL="$MODE_CURSOR_VICMD steady bar"
+#MODE_CURSOR_VLINE="$MODE_CURSOR_VISUAL #00ffff"

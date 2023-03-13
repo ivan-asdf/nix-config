@@ -40,6 +40,7 @@
 
   boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.initrd.systemd.enable = true;
+  boot.supportedFilesystems = [ "ntfs" ];
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   /*
