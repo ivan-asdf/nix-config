@@ -36,7 +36,6 @@
       consoleMode = "max";
     };
   };
-  #boot.loader.efi.canTouchEfiVariables = true;
 
   boot.resumeDevice = "/dev/disk/by-label/swap";
   boot.initrd.systemd.enable = true;
@@ -52,10 +51,10 @@
     grub = {
       enable = true;
       device = "nodev";
+      #gfxmodeEfi = "2560x1440";
     };
   };
   */
-
 
   #boot.plymouth.enable = true;
   #boot.plymouth.theme = "breeze";
