@@ -22,6 +22,7 @@ in
   programs.firefox = {
     enable = true;
     profiles.ivan-nix = {
+      /*
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         bitwarden
@@ -30,6 +31,7 @@ in
         betterttv
         youtube-speed-control
       ];
+      */
       extraConfig = builtins.readFile ./user.js;
       # This one has verticaly tighter rows
       userChrome = builtins.readFile ./userChrome.css;
