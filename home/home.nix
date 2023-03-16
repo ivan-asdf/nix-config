@@ -33,6 +33,8 @@ in
 
   home.shellAliases = {
     ls = "exa --icons";
+    la = "ls -a";
+    lla = "ls -al";
     grep = "grep --color=always";
   };
 
@@ -53,6 +55,7 @@ in
     fd # find
     duf # du
     xcp # cp
+    ripgrep # grep
     # dev
     nodejs
     nodePackages.pyright

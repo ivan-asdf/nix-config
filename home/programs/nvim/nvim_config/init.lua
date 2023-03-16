@@ -13,6 +13,9 @@ require('nvim-highlight-colors').setup {}
 require('gitsigns').setup()
 require('lualine').setup()
 
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 -- LSP STUFF TILL END 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
@@ -91,7 +94,7 @@ require 'lspconfig'.lua_ls.setup {
   }
 }
 
-local servers = { 'pyright', 'gopls', 'cssls', 'clangd' }
+local servers = { 'pyright', 'gopls', 'cssls', 'clangd', 'bashls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     on_attach = on_attach,

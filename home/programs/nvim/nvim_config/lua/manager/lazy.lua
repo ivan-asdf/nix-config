@@ -16,6 +16,10 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
   --'Ivan-Asdf/onedark.nvim',
   'catppuccin/nvim',
+  'ellisonleao/gruvbox.nvim',
+  'folke/tokyonight.nvim',
+  'rebelot/kanagawa.nvim',
+
   'lewis6991/gitsigns.nvim',
   'nvim-lualine/lualine.nvim',
   'nvim-tree/nvim-tree.lua',
@@ -31,6 +35,12 @@ local plugins = {
   --use {"akinsho/toggleterm.nvim", tag = 'v1.*', config = function()
   --require("toggleterm").setup()
   --end}
+  {
+    'williamboman/mason.nvim',
+    lazy = false,
+  },
+  "williamboman/mason-lspconfig.nvim", -- for usage with nvim-lspconfig
+
   'nvim-treesitter/nvim-treesitter', -- run= ':TSUpdate'
   'windwp/nvim-ts-autotag',
   'neovim/nvim-lspconfig',    -- Configurations for Nvim LSP
