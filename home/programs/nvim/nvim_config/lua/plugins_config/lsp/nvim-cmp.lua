@@ -5,6 +5,9 @@ local luasnip = require 'luasnip'
 local cmp = require 'cmp'
 
 cmp.setup({
+  view = {
+    entries = "custom",
+  },
   snippet = {
     -- REQUIRED - you must specify a snippet engine
     expand = function(args)
