@@ -67,7 +67,10 @@ local plugins = {
     tag = '0.1.1',
     -- or                              , branch = '0.1.1',
     dependencies = { 'nvim-lua/plenary.nvim' }
-  }
+  },
+
+  -- Fugitive (vim)
+  'tpope/vim-fugitive',
 }
 
 require("lazy").setup(plugins)
