@@ -1,8 +1,9 @@
 {...} : {
   imports = [
+    ./custom/change_wallpaper
+    ./dunst
     ./picom
     ./polybar
-    ./custom/change_wallpaper
   ];
 
   systemd.user.sessionVariables = {
@@ -18,8 +19,4 @@
   suspend + hibernate
     they are systemd targets so just write a requiredBy=suspend unit
   */
-
-  services.dunst = {
-    enable = true;
-  };
 }

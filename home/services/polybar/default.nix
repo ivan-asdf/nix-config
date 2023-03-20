@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+{
   services.polybar = {
     enable = true;
     package = pkgs.polybar.override {
@@ -8,9 +9,12 @@
       i3Support = true;
     };
 
-    config = ./latte.ini;
-    script = "polybar bar1 >> /home/ivan/.cache/polybar.log";
-    #extraConfig = builtins.readFile ./polybar/latte.init;
+    config = ./${config.custom.theme}.ini;
+    #script = "polybar bar1 >> /home/ivan/.cache/polybar.log";
+    script = "polybar &";
+    # this is put at bottom of config
+    #extraConfig = builtins.readFile ./latte.ini;
+
     settings = {
       "bar/bar1" = {
         font = [
@@ -27,7 +31,7 @@
         height = 29;
         padding-right = 1;
 
-        background = "\${colors.base}";
+        background = "\${colors.background}";
         foreground = "\${colors.text}";
 
         tray-position = "left";
@@ -40,11 +44,13 @@
       };
       "module/i3" = {
         type = "internal/i3";
-        #label-focused-background = "\${colors.overlay0}";
-        label-focused-background = "\${colors.pink}";
-        label-unfocused-background = "\${colors.surface0}";
-        label-urgent-background = "\${colors.maroon}";
-        #label-visible-background = "\${colors.maroon}";
+        label-focused-background = "\${colors.i3_focused_bg}";
+        label-focused-foreground = "\${colors.i3_focused_fg}";
+        label-unfocused-background = "\${colors.i3_unfocused_bg}";
+        label-unfocused-foreground = "\${colors.i3_unfocused_fg}";
+        label-urgent-background = "\${colors.i3_urgent_bg}";
+        label-urgent-foreground = "\${colors.i3_urgent_fg}";
+        #label-visible-background = "\${colors.warn_foreground}";
         #label-separator = " ";
         #label-separator-padding = 1;
         workspace-label = "%index%";
@@ -80,7 +86,7 @@
         ramp-coreload-spacing = 0;
         format = "<label> <ramp-coreload>";
         format-warn = "<label-warn> <ramp-coreload>";
-        format-warn-foreground = "\${colors.maroon}";
+        format-warn-foreground = "\${colors.warn_foreground}";
       };
       "module/date" = {
         type = "internal/date";
@@ -97,7 +103,7 @@
         ramp = [ "" "" "" "" "" ];
         format = "<ramp> <label>";
         format-warn = "<ramp> <label-warn>";
-        format-warn-foreground = "\${colors.maroon}";
+        format-warn-foreground = "\${colors.warn_foreground}";
       };
       "module/memory" = {
         type = "internal/memory";
@@ -105,8 +111,8 @@
         label = " %percentage_used%%"; # (font awesome 6)
         label-warn = " %percentage_used%%";
         format-warn = "<label-warn>";
-        #label-warn-foreground = "\${colors.maroon}";
-        format-warn-foreground = "\${colors.maroon}";
+        #label-warn-foreground = "\${colors.warn_foreground}";
+        format-warn-foreground = "\${colors.warn_foreground}";
       };
       "module/filesystem" = {
         type = "internal/fs";
@@ -115,7 +121,7 @@
         label-mounted = "󰋊 %percentage_used%%";
         label-warn = "󰋊 %percentage_used%%";
         format-warn = "<label-warn>";
-        format-warn-foreground = "\${colors.maroon}";
+        format-warn-foreground = "\${colors.warn_foreground}";
       };
     };
   };

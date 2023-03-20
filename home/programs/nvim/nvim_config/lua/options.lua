@@ -18,9 +18,9 @@ vim.cmd([[set colorcolumn=80]])
 vim.cmd([[set cmdheight=2]])
 vim.cmd([[set updatetime=50]])
 
-vim.o.background = "light"
 -- vim.cmd([[colorscheme onedark]])
 vim.o.termguicolors = true
+vim.o.background = "light"
 vim.cmd.colorscheme 'catppuccin'
 -- vim.cmd([[set splitbelow]])
 -- vim.cmd([[termwinsize=10x0]])

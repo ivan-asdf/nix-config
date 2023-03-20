@@ -1,8 +1,10 @@
-{...} : {
+{ config, ... }: {
   programs.alacritty.enable = true;
 
   xdg.configFile."alacritty/alacritty.yml" = {
-    source = ./alacritty.yml;
-    #source = ./kanagawa.yml;
+    text = ''
+      ${builtins.readFile ./alacritty.yml}
+      ${builtins.readFile ./${config.custom.theme}.yml}
+    '';
   };
 }

@@ -6,5 +6,6 @@
     ./bash
     ./zsh
     ./firefox
+    ./discord
   ];
 }

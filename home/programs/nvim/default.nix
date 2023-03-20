@@ -1,16 +1,40 @@
-{ pkgs, ... }: {
+{ pkgs, config, ... }:
+let
+  themes = {
+  catppuccin = ''
+    vim.cmd.colorscheme 'catppuccin'
+    vim.o.background = "light"
+  '';
+  kanagawa = ''
+    vim.cmd.colorscheme 'kanagawa'
+    vim.o.background = "dark"
+  '';
+  };
+  theme = themes.${config.custom.theme};
+in
+{
   programs.neovim = {
     enable = true;
     defaultEditor = true;
     viAlias = true;
     vimAlias = true;
 
-    #extraConfig = ":luafile ~/.config/nvim/init.lua";
+    #extraConfig = ":luafile ~/.config/nvim/init1.lua";
+    extraLuaConfig = ''
+      require('init')
+      ${theme} 
+    ''
+    ;
     ##plugins = with pkgs.vimPlugins; [
-      #lualine-nvim
-      #gitsigns-nvim
-      #nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
+    #lualine-nvim
+    #gitsigns-nvim
+    #nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
     #];
+    /*
+      generatedConfigs = {
+      lua = "dasdas";
+      };
+    */
   };
 
   xdg.configFile.nvim = {
@@ -27,6 +51,7 @@
     rustfmt
     sourcekit-lsp # C++
     gopls
+    nodePackages.vscode-css-languageserver-bin
   ];
 }
 

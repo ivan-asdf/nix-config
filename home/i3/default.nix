@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, config, lib, ... }:
 let
   mod = "Mod4";
   terminal = "alacritty";
@@ -35,8 +35,8 @@ in
       startup = [
         { command = "autotiling"; always = true; }
         #runing with systemd - it restarts alone from time to time receives (signal 15)
-        #{ command = "systemctl --user restart polybar"; always = true; notification = false; }
-        { command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
+        { command = "systemctl --user restart polybar"; always = true; notification = false; }
+        #{ command = "pkill polybar; polybar --log=info 2>> /home/ivan/.cache/polybar1.log"; always = true; notification = false; }
         #{ command = "pkill polybar; polybar"; always = true; notification = false; }
         { command = "mkdir ~/.cache/screenshots/ -p"; always = true; }
       ];
@@ -51,7 +51,8 @@ in
       gaps.top = 29 + 13;
       gaps.inner = 10;
     };
-    extraConfig = builtins.readFile ./colors_catppuccin;
+
+    extraConfig = builtins.readFile ./themes/${config.custom.theme};
   };
 
   programs.kitty = {

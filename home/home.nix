@@ -8,6 +8,7 @@ let
 in
 {
   imports = [
+    ./custom
     ./i3
     ./services
     ./programs
@@ -74,8 +75,6 @@ in
     # big gui software
     font-manager
     cinnamon.nemo
-    # proprietary stuff
-    discord
   ];
 
   home.pointerCursor = {

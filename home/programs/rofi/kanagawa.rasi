@@ -1,0 +1,165 @@
+* {
+  // Kanagawa theme palette
+  foreground: #dcd7ba;
+  background: #1f1f2877;
+
+  selection-foreground: #c8c093;
+  selection-background: #2d4f67;
+
+  regular0: #090618;
+  regular1: #c34043;
+  regular2: #76946a;
+  regular3: #c0a36e;
+  regular4: #7e9cd8;
+  regular5: #957fb8;
+  regular6: #6a9589;
+  regular7: #c8c093;
+
+  bright0 : #727169;
+  bright1 : #e82424;
+  bright2 : #98bb6c;
+  bright3 : #e6c384;
+  bright4 : #7fb4ca;
+  bright5 : #938aa9;
+  bright6 : #7aa89f;
+  bright7 : #dcd7ba;
+
+  16      : #ffa066;
+  17      : #ff5d62;
+}
+
+configuration {
+  icon-theme: "Papirus";
+  show-icons: true;
+
+  //display-drun: "apps";
+  //display-combi: "combi2";
+}
+
+* {
+  highlight: bold italic;
+  scrollbar: true;
+
+  mainfont: "Hack 16";
+  bigfont: "Hack 21";
+  font: @mainfont;
+
+  text-color: @foreground;
+  background-color: transparent;
+}
+
+// MAIN LAYOUT
+
+window {
+  border: 0px;
+  margin: 0px;
+  background-color: @background;
+}
+
+mainbox {
+  margin: 8px;
+  border: 0px;
+  children: [ inputbar, listview, bottom ];
+}
+
+// INPUT BAR
+
+inputbar {
+  font: @bigfont;
+  spacing: 20px;
+  children: [ prompt, entry, textbox-current-entry, icon-current-entry ];
+}
+
+prompt {
+  padding: 0px 15px 0px 15px;
+  vertical-align: 0.5;
+
+  font: inherit;
+  background-color: @regular0;
+
+  text-color: @regular0;
+  background-color: @selection-foreground;
+}
+
+entry {
+  font: inherit;
+  vertical-align: 0.5;
+}
+
+textbox-current-entry {
+  width: 20em;
+  horizontal-align: 1;
+  vertical-align: 0.5;
+  font: inherit;
+}
+
+icon-current-entry {
+  size: 2em;
+}
+
+// LISTVIEW
+
+listview {
+  border: 2px 2px 2px;
+  border-color: @foreground;
+  padding: 6px 6px 6px;
+  margin: 15px;
+  columns: 3;
+  lines: 8;
+}
+
+scrollbar {
+  width: 4px;
+  handle-color: @selection-foreground;
+  handle-width: 6px;
+}
+
+element {
+  orientation: horizontal;
+  /*children: [ element-text, element-icon ];*/
+  spacing: 5px;
+}
+
+element-text {
+  font: @mainfont;
+}
+
+element-icon {
+  size: 1.2em;
+}
+
+element selected {
+  background-color: @selection-background;
+}
+
+// BOTTOM
+
+bottom {
+  expand: false;
+  vertical-align: 1;
+  orientation: horizontal;
+  children: [ mode-switcher, spacer, num-filtered-rows ];
+  border: 2px;
+}
+
+spacer {
+  expand: true;
+}
+
+num-filtered-rows {
+  expand: false;
+  horizontal-align: 1;
+  vertical-align: 0.5;
+}
+
+button {
+  expand: false;
+  padding: 8px 18px 8px 18px;
+}
+
+button selected {
+  background-color: @regular0;
+
+  text-color: @regular0;
+  background-color: @selection-foreground;
+}

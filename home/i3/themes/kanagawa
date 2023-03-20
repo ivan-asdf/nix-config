@@ -1,0 +1,34 @@
+set $fg  #dcd7ba
+set $bg  #1f1f28
+
+set $sel-fg #c8c093
+set $sel-bg #2d4f67
+
+set $regular0  #090618
+set $regular1  #c34043
+set $regular2  #76946a
+set $regular3  #c0a36e
+set $regular4  #7e9cd8
+set $regular5  #957fb8
+set $regular6  #6a9589
+set $regular7  #c8c093
+
+set $bright0   #727169
+set $bright1   #e82424
+set $bright2   #98bb6c
+set $bright3   #e6c384
+set $bright4   #7fb4ca
+set $bright5   #938aa9
+set $bright6   #7aa89f
+set $bright7   #dcd7ba
+
+set $16        #ffa066
+set $17        #ff5d62
+
+# target                 title        bg         text     indicator  border
+client.focused           $self-fg     $sel-bg    $sel-fg  $sel-fg    $sel-fg
+client.focused_inactive  $regular0    $bg        $fg      $bg        $bg
+client.unfocused         $regular0    $bg        $fg      $bg        $bg
+client.urgent            $bright1     $bg        $fg      $bright1   $bright1
+client.placeholder       $regular0    $regular0  $fg      $bright1   $bright1
+client.background        $bg
