@@ -25,17 +25,12 @@ in
   programs.firefox = {
     enable = true;
     profiles.ivan-nix = {
-      /*
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
         bitwarden
         privacy-badger
         vimium
         betterttv
-        youtube-speed-control
-      ];
-      */
-      extensions = [
         youtube-speed-control
       ];
       settings = {
