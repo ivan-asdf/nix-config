@@ -2,7 +2,7 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.autoread = true
-vim.opt.scrolloff=8
+vim.opt.scrolloff = 8
 
 vim.cmd([[set expandtab]])
 
@@ -18,6 +18,7 @@ vim.cmd([[set colorcolumn=80]])
 vim.cmd([[set cmdheight=2]])
 vim.cmd([[set updatetime=50]])
 
+
 -- vim.cmd([[colorscheme onedark]])
 vim.o.termguicolors = true
 vim.o.background = "light"
@@ -29,4 +30,3 @@ vim.o.cursorline = true
 -- vim.cmd([[set guicursor=i:block-iCursor]])
 vim.cmd([[set guicursor=i:block-Cursor]])
 -- vim.cmd([[set guicursor+=i:blinkon1-iCursor/iCursor]])
-

@@ -15,7 +15,6 @@ require('plugins_config.nvim-treesitter')
 -- Inbuild nvim lsp client configuration
 -- Features: highlight errors, jump declartions/definitions/references, renaming
 require('plugins_config.lsp.lspconfig/lspconfigs')
-require('plugins_config.lsp.lspconfig/maps')
 
 -- Show autocomplete popups
 require('plugins_config.lsp.nvim-cmp')
