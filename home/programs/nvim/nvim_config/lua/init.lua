@@ -30,6 +30,13 @@ require('lualine').setup {}
 require("mason").setup()
 require("mason-lspconfig").setup()
 
+-- Buffer tabs
+require("bufferline").setup {
+  options = {
+    close_command = "Bdelete"
+  }
+}
+
 -- require('onedark').setup {
 -- style = 'light'
 --}

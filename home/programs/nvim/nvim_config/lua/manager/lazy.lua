@@ -71,6 +71,10 @@ local plugins = {
 
   -- Fugitive (vim)
   'tpope/vim-fugitive',
+
+  -- Bufferline
+  'akinsho/bufferline.nvim',
+  'moll/vim-bbye' -- Adds :Bdelete that closes buffer without closing window
 }
 
 require("lazy").setup(plugins)
