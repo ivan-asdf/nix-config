@@ -20,8 +20,10 @@ local plugins = {
   'folke/tokyonight.nvim',
   'rebelot/kanagawa.nvim',
 
+  'brenoprata10/nvim-highlight-colors',
   'lewis6991/gitsigns.nvim',
   'nvim-lualine/lualine.nvim',
+
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons' ,
   {
@@ -43,13 +45,16 @@ local plugins = {
 
   'nvim-treesitter/nvim-treesitter', -- run= ':TSUpdate'
   'windwp/nvim-ts-autotag',
+
   'neovim/nvim-lspconfig',    -- Configurations for Nvim LSP
-  'hrsh7th/nvim-cmp',         -- Autocompletion plugin
+
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
   'hrsh7th/cmp-nvim-lsp',     -- LSP source for nvim-cmp
+  'hrsh7th/nvim-cmp',         -- Autocompletion plugin
+
   'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
   'L3MON4D3/LuaSnip',         -- Snippets plugin
-
-  'brenoprata10/nvim-highlight-colors',
 }
 
 require("lazy").setup(plugins)
