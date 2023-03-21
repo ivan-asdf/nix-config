@@ -22,3 +22,8 @@ vim.keymap.set('n', '<leader>fr', builtin.lsp_references, {})
 
 -- Fugitive
 vim.keymap.set("n", "<leader>gs", vim.cmd.Git);
+
+-- Buferline (actually just general command)
+vim.keymap.set('n', '<C-h>', vim.cmd.bp)
+vim.keymap.set('n', '<C-l>', vim.cmd.bn)
+vim.keymap.set('n', '<C-q>', ":Bdelete<Enter>")

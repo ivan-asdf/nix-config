@@ -35,6 +35,8 @@ local function my_on_attach(bufnr)
   vim.keymap.set('n', 'v', api.node.open.vertical, opts('Open: Vertical Split'))
   -- replaces api.node.run.system default key
   vim.keymap.set('n', 's', api.node.open.horizontal, opts('Open: Horizontal Split'))
+  vim.keymap.set('n', 'h', api.node.navigate.parent_close, opts('Close Directory'))
+  vim.keymap.set('n', 'l', api.node.open.edit, opts('Open'))
 end
 -- have explored all optionns upto nvim-tree.trash
 require("nvim-tree").setup({
