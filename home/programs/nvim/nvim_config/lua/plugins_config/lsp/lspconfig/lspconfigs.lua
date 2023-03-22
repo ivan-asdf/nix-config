@@ -16,6 +16,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.cssls.setup {
   capabilities = capabilities,
 }
+require 'lspconfig'.jsonls.setup {
+  capabilities = capabilities,
+  cmd = { "json-languageserver", "--stdio" }
+}
 
 --require'lspconfig'.rnix.setup{}
 require 'lspconfig'.nil_ls.setup {
@@ -30,7 +34,7 @@ require 'lspconfig'.nil_ls.setup {
   },
 }
 
-require'lspconfig'.lua_ls.setup {
+require 'lspconfig'.lua_ls.setup {
   flags = lsp_flags,
   settings = {
     Lua = {
@@ -40,7 +44,7 @@ require'lspconfig'.lua_ls.setup {
       },
       diagnostics = {
         -- Get the language server to recognize the `vim` global
-        globals = {'vim'},
+        globals = { 'vim' },
       },
       workspace = {
         -- Make the server aware of Neovim runtime files
@@ -63,7 +67,7 @@ require'lspconfig'.lua_ls.setup {
   },
 }
 
-local servers = { 'pyright', 'gopls', 'cssls', 'clangd', 'bashls' }
+local servers = { 'pyright', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = lsp_flags

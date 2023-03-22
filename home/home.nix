@@ -1,8 +1,7 @@
 { pkgs, ... }:
 let
   python-packages = p: with p; [
-    toml
-    requests
+    toml requests
   ];
   python_with_packages = (pkgs.python3Full.withPackages python-packages);
 in
@@ -64,9 +63,15 @@ in
     #gnumake
     sphinx
     pkg-config
+    # big non gui
+    #texlive.combined.scheme-basic
+    #texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     # big gui software
     font-manager
     cinnamon.nemo
+    gimp
+    spotify
   ];
 
   home.pointerCursor = {

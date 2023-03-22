@@ -52,6 +52,8 @@ in
     sourcekit-lsp # C++
     gopls
     nodePackages.vscode-css-languageserver-bin
+    nodePackages.vscode-json-languageserver-bin
+    texlab
   ];
 }
 
