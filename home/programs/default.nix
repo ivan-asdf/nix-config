@@ -7,5 +7,6 @@
     ./zsh
     ./firefox
     ./discord
+    ./tmux
   ];
 }

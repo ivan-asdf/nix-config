@@ -28,6 +28,7 @@ in
     la = "ls -a";
     lla = "ls -al";
     grep = "grep --color=always";
+    mux = "tmuxinator";
   };
 
   fonts.fontconfig.enable = true;
@@ -99,19 +100,6 @@ in
     userName = "Ivan";
     userEmail = "ivan.asdf0@gmail.com";
     extraConfig.init.defaultBranch = "master";
-  };
-
-  programs.tmux = {
-    enable = true;
-    mouse = true;
-    baseIndex = 1;
-    extraConfig = ''
-      set-option -sg escape-time 10
-      set-option -g focus-events on
-
-      set -g default-terminal "screen-256color"
-      set -ag terminal-overrides ",xterm-256color:RGB"
-    '';
   };
 }
 
