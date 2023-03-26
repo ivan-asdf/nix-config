@@ -73,6 +73,7 @@ in
     cinnamon.nemo
     gimp
     spotify
+    transmission-gtk
   ];
 
   home.pointerCursor = {
@@ -90,9 +91,16 @@ in
     XCURSOR_SIZE = "24";
   };
   gtk = {
-    gtk2.extraConfig = "gtk-cursor-theme-size=24";
-    gtk3.extraConfig."gtk-cursor-theme-size" = 24;
-    gtk4.extraConfig."gtk-cursor-theme-size" = 24;
+    #gtk2.extraConfig = "gtk-cursor-theme-size=24";
+    #gtk3.extraConfig."gtk-cursor-theme-size" = 24;
+    #gtk4.extraConfig."gtk-cursor-theme-size" = 24;
+    enable = true;
+    theme =  {
+      #package = pkgs.gnome.gnome-themes-extra;
+      #name = "Adwaita-dark";
+      package = pkgs.yaru-theme;
+      name = "Yaru-bark-dark";
+    };
   };
 
   programs.git = {

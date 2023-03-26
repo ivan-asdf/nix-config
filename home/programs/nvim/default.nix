@@ -50,6 +50,8 @@ in
     rust-analyzer
     rustfmt
     sourcekit-lsp # C++
+    clang-tools
+    cmake
     gopls
     nodePackages.vscode-css-languageserver-bin
     nodePackages.vscode-json-languageserver-bin

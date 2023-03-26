@@ -18,6 +18,8 @@ in
         "Print" = "exec flameshot full -c -p ~/.cache/screenshots/";
         "Shift+Print" = "exec flameshot gui -c -p ~/.cache/screenshots/";
         "${mod}+Shift+x" = "exec betterlockscreen -l blur";
+        #"${mod}+u" = "exec betterlockscreen -l blur";
+        "${mod}+Escape" = "exec ${pkgs.powermenu}/bin/powermenu";
 
         # Focus
         "${mod}+h" = "focus left";

@@ -43,7 +43,7 @@
   #boot.kernelPackages = pkgs.linuxPackages_latest;
 
   /*
-  boot.loader = {
+    boot.loader = {
     efi = {
       canTouchEfiVariables = true;
       efiSysMountPoint = "/boot/efi";
@@ -53,7 +53,7 @@
       device = "nodev";
       #gfxmodeEfi = "2560x1440";
     };
-  };
+    };
   */
 
   #boot.plymouth.enable = true;
@@ -71,12 +71,12 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Select internationalisation properties.
-   i18n.defaultLocale = "en_US.UTF-8";
-   console = {
-     font = "Lat2-Terminus16";
-     #keyMap = "us";
-     useXkbConfig = true; # use xkbOptions in tty.
-   };
+  i18n.defaultLocale = "en_US.UTF-8";
+  console = {
+    font = "Lat2-Terminus16";
+    #keyMap = "us";
+    useXkbConfig = true; # use xkbOptions in tty.
+  };
 
   # Enable the Plasma 5 Desktop Environment.
   #services.xserver.displayManager.sddm.enable = true;
@@ -127,6 +127,7 @@
   environment.shellAliases = {
     dd = "dd status=progress";
   };
+  programs.dconf.enable = true;
 
   # security.polkit.enable = true;
 

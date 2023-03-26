@@ -9,12 +9,11 @@
       i3Support = true;
     };
 
-    config = ./${config.custom.theme}.ini;
+    config = ./themes/${config.custom.theme}.ini;
     #script = "polybar bar1 >> /home/ivan/.cache/polybar.log";
     script = "polybar &";
     # this is put at bottom of config
     #extraConfig = builtins.readFile ./latte.ini;
-
     settings = {
       "bar/bar1" = {
         font = [
@@ -34,13 +33,20 @@
         background = "\${colors.background}";
         foreground = "\${colors.text}";
 
-        tray-position = "left";
+        tray-position = "center";
+        tray-detached = true;
+        tray-offset-x = 600;
 
         seperator = "|";
         module-margin = 2;
-        modules-left = "xwindow";
+        /*
+        modules-left = "i3 xwindow";
+        modules-center = "";
+        modules-right = "powermenu network filesystem memory temperature cpu volume date";
+        */
+        modules-left = "cpu temperature memory filesystem network";
         modules-center = "i3";
-        modules-right = "filesystem memory temperature cpu volume date";
+        modules-right = "powermenu volume date";
       };
       "module/i3" = {
         type = "internal/i3";
@@ -123,7 +129,49 @@
         format-warn = "<label-warn>";
         format-warn-foreground = "\${colors.warn_foreground}";
       };
+      "module/network" = {
+        type = "internal/network";
+        interface = "enp37s0";
+        interface-type = "wired";
+
+        #format-connected = "<label-connected>";
+        label-connected = "󰇚 %downspeed:8%  󰕒 %upspeed:8%";
+        label-disconnected = "󰌙"; #󰲜
+        label-disconnected-foreground = "\${colors.warn_foreground}";
+        #ramp-signal = [ "󰣴" "󰣶" "󰣸" "󰣺" ];
+      };
+      "module/powermenu" = with pkgs; {
+        type = "custom/text";
+        content = "";
+        # Since the unit file set PATH explicitly it overrides the systemctl show-environment PATH
+        click-left = "${powermenu}/bin/powermenu";
+      };
+      #"module/mpd" = {
+        #type = "internal/mpd";
+      #};
+
+      # Seems to be not supported on my hardware(backlight also not)
+      #"module/backlight" = {
+      #output = "DP-4";
+      #type = "internal/xbacklight";
+      #format = "<label>";
+      #label = "%percentage%";
+      #};
+      # Nix throws a infinite recursion error
+      #"module/board" = {
+        #type = internal/xkeyboard;
+      #};
+      # They are inline inside bar
+      #"module/menu-apps" = {
+      #type = "custom/menu";
+      #expand-right = true;
+      #menu-0-0 = "HIBERNATE 󰤄";
+      #menu-0-1 = "SHOWDOWN 󰤄";
+      #label-open = "Apps";
+      #};
+
     };
   };
+
 }
 
