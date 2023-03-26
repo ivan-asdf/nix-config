@@ -27,8 +27,6 @@ local plugins = {
   'nvim-lualine/lualine.nvim',
 
   -- Tree - file navigator
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
   {
     'nvim-tree/nvim-tree.lua',
     dependencies = {
@@ -74,7 +72,10 @@ local plugins = {
 
   -- Bufferline
   'akinsho/bufferline.nvim',
-  'moll/vim-bbye' -- Adds :Bdelete that closes buffer without closing window
+  'moll/vim-bbye', -- Adds :Bdelete that closes buffer without closing window
+
+  -- Commentary
+  'tpope/vim-commentary'
 }
 
 require("lazy").setup(plugins)
