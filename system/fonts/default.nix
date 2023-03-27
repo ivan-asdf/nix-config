@@ -9,6 +9,7 @@
       noto-fonts-emoji
       #(nerdfonts.override { fonts = [ "Hack" ]; })
       (pkgs.callPackage ./nerd {})
+      weather-icons
     ];
     enableDefaultFonts = false;
     fontconfig = {

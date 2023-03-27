@@ -1,4 +1,7 @@
 { pkgs, config, ... }:
+let
+  weather = pkgs.callPackage ./scripts/weather.nix {} ;
+in
 {
   services.polybar = {
     enable = true;
@@ -20,6 +23,7 @@
           "Symbols Nerd Font:size=16;4"
           "Hack:size=12;4"
           "Noto Color Emoji:scale=8;2"
+          "Weather Icons:size=12;1"
         ];
         # to make it centered -> detach from i3
         override-redirect = true;
@@ -35,7 +39,7 @@
 
         tray-position = "center";
         tray-detached = true;
-        tray-offset-x = 600;
+        tray-offset-x = 500;
 
         seperator = "|";
         module-margin = 2;
@@ -46,7 +50,7 @@
         */
         modules-left = "cpu temperature memory filesystem network";
         modules-center = "i3";
-        modules-right = "powermenu volume date";
+        modules-right = "powermenu volume weather date";
       };
       "module/i3" = {
         type = "internal/i3";
@@ -97,9 +101,9 @@
       "module/date" = {
         type = "internal/date";
         #date = "%y-%m-%d%";
-        date = "%a %e %b %Y";
+        date = "%a, %e %b %Y";
         time = "%H:%M:%S";
-        label = " %date%  %time%";
+        label = " %date%   %time%";
       };
       "module/temperature" = {
         type = "internal/temperature";
@@ -146,8 +150,15 @@
         # Since the unit file set PATH explicitly it overrides the systemctl show-environment PATH
         click-left = "${powermenu}/bin/powermenu";
       };
+
+      "module/weather" = {
+        type = "custom/script";
+        exec = "${weather}/bin/weather";
+        interval = "600";
+        label-font = "4";
+      };
       #"module/mpd" = {
-        #type = "internal/mpd";
+      #type = "internal/mpd";
       #};
 
       # Seems to be not supported on my hardware(backlight also not)
@@ -159,7 +170,7 @@
       #};
       # Nix throws a infinite recursion error
       #"module/board" = {
-        #type = internal/xkeyboard;
+      #type = internal/xkeyboard;
       #};
       # They are inline inside bar
       #"module/menu-apps" = {
