@@ -2,7 +2,7 @@
 let
   nerd_font = pkgs.stdenv.mkDerivation {
     name = "Nerd Font";
-    src = ./nerd;
+    src = ./.;
     installPhase = "
       mkdir -p $out/share/fonts/nerd
       echo 'HELLO'
@@ -10,7 +10,5 @@ let
     ";
   };
 in
-{ 
-    home.packages = [ nerd_font ];
-}
+nerd_font
 

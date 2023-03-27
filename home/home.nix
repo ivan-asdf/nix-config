@@ -12,7 +12,6 @@ in
     ./services
     ./programs
     ./scripts
-    ./fonts
   ];
 
   home.stateVersion = "22.11";
@@ -38,8 +37,10 @@ in
     cloc
     jq
     feh
+    mpv
     zathura
     neofetch
+    yt-dlp
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -100,6 +101,13 @@ in
       #name = "Adwaita-dark";
       package = pkgs.yaru-theme;
       name = "Yaru-bark-dark";
+    };
+  };
+
+  xdg.mimeApps = {
+    enable = true;
+    defaultApplications = {
+      "application/pdf" = "org.pwmt.zathura.desktop";
     };
   };
 

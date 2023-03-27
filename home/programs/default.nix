@@ -8,5 +8,6 @@
     ./firefox
     ./discord
     ./tmux
+    ./lf
   ];
 }

@@ -8,23 +8,24 @@
       hack-font
       noto-fonts-emoji
       #(nerdfonts.override { fonts = [ "Hack" ]; })
+      (pkgs.callPackage ./nerd {})
     ];
     enableDefaultFonts = false;
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Material Design Icons" "Symbols Nerd Font" ];
+        monospace = [ "Symbols Nerd Font" ];
         sansSerif = [ ];
         serif = [ ];
         #emoji = ["Noto Color Emoji"];
       };
-      /*localConf = ''
+      localConf = ''
         <alias>
           <family>Hack</family>
           <prefer>
             <family>Symbols Nerd Font</family>
           </prefer>
         </alias>
-      '';*/
+      '';
     };
   };
 }
