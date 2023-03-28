@@ -45,6 +45,10 @@ in
         #"layout.css.prefers-color-scheme.content-override" =  3;
 
         "ui.systemUsesDarkTheme" = darkMode;
+
+
+        "font.default.x-western" = "sans-serif";
+        "font.size.variable.x-western" = 20;
       };
       extraConfig = builtins.readFile ./user.js;
 

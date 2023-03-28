@@ -1,23 +1,30 @@
 {pkgs, ...} : {
   fonts = {
     fonts = with pkgs; [
+      # Monospace
       #fira-code
       #fira-code-symbols
       #jetbrains-mono
       #source-code-pro
       hack-font
-      noto-fonts-emoji
       #(nerdfonts.override { fonts = [ "Hack" ]; })
+
+      # Icons & Emoji
       (pkgs.callPackage ./nerd {})
       weather-icons
+      noto-fonts-emoji
+      # Serif
+      times-newer-roman
+      # Sans
+      helvetica-neue-lt-std
     ];
     enableDefaultFonts = false;
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Symbols Nerd Font" ];
-        sansSerif = [ ];
-        serif = [ ];
-        #emoji = ["Noto Color Emoji"];
+        monospace = [ "Hack" ];
+        sansSerif = [ "Helvetica Neue LT Std" ];
+        serif = [ "Times Newer Roman" ];
+        emoji = [ "Noto Color Emoji" ];
       };
       localConf = ''
         <alias>
