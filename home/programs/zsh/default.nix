@@ -58,8 +58,8 @@
     };
     */
 
+      #${builtins.readFile ./catppuccin_latte-zsh-syntax-highlighting.zsh}
     initExtraFirst = ''
-      ${builtins.readFile ./catppuccin_latte-zsh-syntax-highlighting.zsh}
 
       # bugged ^[[Z which is shift + tab acts as Esc ^[
       #source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh

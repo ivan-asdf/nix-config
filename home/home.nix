@@ -1,7 +1,7 @@
 { pkgs, ... }:
 let
   python-packages = p: with p; [
-    toml requests
+    toml requests pyperclip
   ];
   python_with_packages = (pkgs.python3Full.withPackages python-packages);
 in
@@ -52,8 +52,6 @@ in
     ripgrep # grep
     # dev
     nodejs
-    nodePackages.pyright
-    nodePackages.typescript-language-server
     python_with_packages
     rustc
     cargo
@@ -75,6 +73,7 @@ in
     gimp
     spotify
     transmission-gtk
+    teams
   ];
 
   home.pointerCursor = {

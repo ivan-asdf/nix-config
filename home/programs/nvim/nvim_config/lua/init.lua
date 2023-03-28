@@ -19,6 +19,9 @@ require('plugins_config.lsp.lspconfig/lspconfigs')
 -- Show autocomplete popups
 require('plugins_config.lsp.nvim-cmp')
 
+-- Null languages server(simulates ls in nvim that is always attached) mostly used for adding formatters
+require('plugins_config.lsp.null-ls')
+
 -- Colors color hashes #22AA33;
 require('nvim-highlight-colors').setup {}
 -- Shows modified lines

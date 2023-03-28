@@ -44,17 +44,33 @@ in
 
   home.packages = with pkgs; [
     xclip # to support copy to global clipboard register
+    # LSs, Formatters, linters(nil-ls diagnostics)
+    # Nix
     nil # nix language lsp
     nixpkgs-fmt
+    # Lua
     lua-language-server
+    # Python
+    nodePackages.pyright
+    black
+    #python310Packages.autopep8
+    python310Packages.flake8
+    # Typescript
+    nodePackages.typescript-language-server
+    # Rust
     rust-analyzer
     rustfmt
+    # C/C++
     sourcekit-lsp # C++
     clang-tools
     cmake
+    # Golang
     gopls
+    # Css
     nodePackages.vscode-css-languageserver-bin
+    # Json
     nodePackages.vscode-json-languageserver-bin
+    # Tex
     texlab
   ];
 }
