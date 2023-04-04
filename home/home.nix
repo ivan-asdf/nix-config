@@ -74,6 +74,7 @@ in
     spotify
     transmission-gtk
     teams
+    yacreader
   ];
 
   home.pointerCursor = {

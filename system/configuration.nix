@@ -17,7 +17,7 @@
     {
       device = "192.168.0.111:/home/ivan/nfs";
       fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" ];
+      options = [ "x-systemd.automount" "noauto" "soft" "intr" "bg" ];
     };
 
   #fileSystems."/home/ivan/wd_hdd" = {
