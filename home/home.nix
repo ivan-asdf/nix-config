@@ -41,6 +41,7 @@ in
     zathura
     neofetch
     yt-dlp
+    lsof
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -110,6 +111,8 @@ in
       "application/pdf" = "org.pwmt.zathura.desktop";
     };
   };
+  # Have to enable otherwise the symlink get overriden by applications(transmission)
+  xdg.configFile."mimeapps.list".force = true;
 
   programs.git = {
     enable = true;

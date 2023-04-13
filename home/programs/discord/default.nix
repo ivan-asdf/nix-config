@@ -27,6 +27,7 @@ in
       },
       "trayBalloonShown": true
     }'';
+  xdg.configFile."discord/settings.json".force = true;
 
   # bugged: fails to find preload.js file in /tmp location
   /*

@@ -62,7 +62,7 @@
   networking.hostName = "desktop";
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-  # networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
+  networking.networkmanager.enable = true; # Easiest to use and most distros use this by default.
 
   time.timeZone = "Europe/Sofia";
 
@@ -106,6 +106,8 @@
   environment.systemPackages = with pkgs; [
     # basic user-programs
     firefox
+    tmux
+    ranger
     # basic utilities
     neovim
     wget
@@ -118,9 +120,9 @@
     tree
     # dev
     gcc
-    # whims
-    tmux
-    ranger
+    # vpn
+    networkmanager-l2tp
+    networkmanagerapplet
   ];
   programs.zsh.enable = true;
   users.users.ivan.shell = pkgs.zsh;
@@ -185,10 +187,23 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "ivan" ];
+  #virtualisation.virtualbox.host.enable = true;
+  #users.extraGroups.vboxusers.members = [ "ivan" ];
 
   systemd.tmpfiles.rules = [
     "w /proc/acpi/wakeup - - - - PTXH"
   ];
+
+  /* moved to xserver.sessionCommands
+  systemd.services.fooxset = {
+    script = ''
+      ${pkgs.xorg.xset}/bin/xset -dpms
+    '';
+    #environment = "DISPLAY=:0";
+    serviceConfig = {
+      Environment = [ "\"XAUTHORITY=/home/ivan/.Xauthority\"" "\"DISPLAY=:0\""];
+    };
+    wantedBy = [ "graphical-session.target" ];
+  };
+  */
 }

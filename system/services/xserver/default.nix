@@ -13,6 +13,8 @@
         sessionCommands = ''
           # default values 660 25
           ${pkgs.xorg.xset}/bin/xset r rate 250 35
+          ${pkgs.xorg.xset}/bin/xset -dpms
+          ${pkgs.xorg.xset}/bin/xset s off
         '';
         lightdm.greeters.mini = {
           enable = true;
