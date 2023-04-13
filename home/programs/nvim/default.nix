@@ -44,6 +44,7 @@ in
 
   home.packages = with pkgs; [
     xclip # to support copy to global clipboard register
+
     # LSs, Formatters, linters(nil-ls diagnostics)
     # Nix
     nil # nix language lsp
@@ -55,6 +56,8 @@ in
     black
     #python310Packages.autopep8
     python310Packages.flake8
+    # Ruby
+    rubyPackages.solargraph
     # Typescript
     nodePackages.typescript-language-server
     # Rust

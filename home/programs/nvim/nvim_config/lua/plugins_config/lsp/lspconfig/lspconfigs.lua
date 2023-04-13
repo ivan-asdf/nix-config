@@ -67,7 +67,7 @@ require 'lspconfig'.lua_ls.setup {
   },
 }
 
-local servers = { 'pyright', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
+local servers = { 'pyright', 'solargraph', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = lsp_flags

@@ -54,6 +54,8 @@ in
     # dev
     nodejs
     python_with_packages
+    ruby
+    rubyPackages.rails
     rustc
     cargo
     go
