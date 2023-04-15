@@ -38,7 +38,17 @@ format = '\[[$symbol$branch]($style)\]'
 
 [git_branch]
 symbol = ' '
-format = '\[[$symbol$branch]($style)\]'
+format = '\[[$symbol$branch(:$remote_branch)]($style)\]'
+always_show_remote = true
+
+[git_commit]
+format = '\[[$hash$tag]($style)'
+tag_disabled = false
+tag_symbol = '  '
+
+[git_metrics]
+disabled = false
+format = '(\[([+$added]($added_style))( [-$deleted]($deleted_style))\])'
 
 [golang]
 symbol = ' '
