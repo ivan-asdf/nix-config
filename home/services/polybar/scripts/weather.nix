@@ -5,7 +5,7 @@ let
   cut = "${pkgs.coreutils}/bin/cut";
   #date = "${pkgs.coreutils}/bin/date";
 in
-pkgs.writeShellScriptBin
+pkgs.writeShellScript
 "weather"
 ''
 #!/bin/sh

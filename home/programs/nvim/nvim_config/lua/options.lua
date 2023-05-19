@@ -30,3 +30,17 @@ vim.o.cursorline = true
 -- vim.cmd([[set guicursor=i:block-iCursor]])
 vim.cmd([[set guicursor=i:block-Cursor]])
 -- vim.cmd([[set guicursor+=i:blinkon1-iCursor/iCursor]])
+
+vim.cmd([[
+  " Add additional file extensions to be recongnised as json
+  augroup filetype_blkx
+    autocmd!
+    autocmd BufRead,BufNewFile *.blkx set filetype=json
+  augroup END
+  " By default all folds are closed when opening a file. This makes them all open
+  autocmd BufReadPost,FileReadPost * normal zR
+]])
+-- vim.opt.foldmethod = "indent"
+-- Use treesitter for folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"

@@ -42,6 +42,7 @@ in
     neofetch
     yt-dlp
     lsof
+    p7zip
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements

@@ -3,7 +3,7 @@ pkgs.stdenv.mkDerivation {
   name = "ctpv";
   src = fetchgit {
     url = "https://github.com/NikitaIvanovV/ctpv.git";
-    sha256 = "sha256-Hi3ed6mvghOwMngydey54KeF6H2ca3an3xHM7I4XGSE=";
+    sha256 = "sha256-1TwmP6gH03xQv+F9ByfTS2B/SQmTzTOqrCRYjYpmHDo=";
   };
   # libmagic libcrypto
   buildInputs = with pkgs; [ file openssl ];

@@ -1,6 +1,7 @@
 { pkgs, config, ... }:
 let
-  weather = pkgs.callPackage ./scripts/weather.nix {} ;
+  weather_script = pkgs.callPackage ./scripts/weather.nix {} ;
+  mic_script = pkgs.callPackage ./scripts/mic.nix {} ;
 in
 {
   services.polybar = {
@@ -39,7 +40,7 @@ in
 
         tray-position = "center";
         tray-detached = true;
-        tray-offset-x = 500;
+        tray-offset-x = 400;
 
         seperator = "|";
         module-margin = 2;
@@ -50,7 +51,7 @@ in
         */
         modules-left = "cpu temperature memory filesystem network";
         modules-center = "i3";
-        modules-right = "powermenu volume weather date";
+        modules-right = "powermenu volume mic weather date";
       };
       "module/i3" = {
         type = "internal/i3";
@@ -153,9 +154,16 @@ in
 
       "module/weather" = {
         type = "custom/script";
-        exec = "${weather}/bin/weather";
+        exec = "${weather_script}";
         interval = "600";
         label-font = "4";
+      };
+      "module/mic" = {
+        type = "custom/script";
+        exec = "${mic_script}";
+        click-right = "${pkgs.pavucontrol}/bin/pavucontrol -t 4 &";
+        click-left = "${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
+        interval = "0.2";
       };
       #"module/mpd" = {
       #type = "internal/mpd";
