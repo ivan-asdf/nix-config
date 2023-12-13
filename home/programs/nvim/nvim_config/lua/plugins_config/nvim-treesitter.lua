@@ -3,7 +3,7 @@
 -- call add('nvim-treesitter/nvim-treesitter', {'hook_post_update': 'TSUpdate'})
 require 'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all"
-  ensure_installed = { "c", "cpp", "lua", "rust", "go", "html", "javascript", "css", "nix" },
+  ensure_installed = { "c", "cpp", "lua", "rust", "go", "html", "javascript", "css", "nix", "python" },
   autotag = {
     enable = true,
   },

@@ -1,6 +1,6 @@
 {pkgs, ...} : {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # Monospace
       #fira-code
       #fira-code-symbols
@@ -18,7 +18,7 @@
       # Sans
       helvetica-neue-lt-std
     ];
-    enableDefaultFonts = false;
+    enableDefaultPackages = false;
     fontconfig = {
       defaultFonts = {
         monospace = [ "Hack" ];

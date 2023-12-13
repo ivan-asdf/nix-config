@@ -64,7 +64,7 @@ in
     rust-analyzer
     rustfmt
     # C/C++
-    sourcekit-lsp # C++
+    #sourcekit-lsp # C++
     clang-tools
     cmake
     # Golang

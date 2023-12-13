@@ -6,6 +6,8 @@
       # use: xprop | grep "CLASS"  to get window name
       "96:class_g = 'Alacritty' && focused"
       "90:class_g = 'Alacritty' && !focused"
+      "96:class_g = 'kitty' && focused"
+      "90:class_g = 'kitty' && !focused"
     ];
     settings = {
       blur = {

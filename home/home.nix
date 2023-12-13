@@ -1,7 +1,10 @@
 { pkgs, ... }:
 let
   python-packages = p: with p; [
-    toml requests pyperclip
+    toml
+    requests
+    pyperclip
+    lark
   ];
   python_with_packages = (pkgs.python3Full.withPackages python-packages);
 in
@@ -23,7 +26,7 @@ in
   #nixpkgs.config.allowUnfree = true;
 
   home.shellAliases = {
-    ls = "exa --icons";
+    ls = "eza --icons";
     la = "ls -a";
     lla = "ls -al";
     grep = "grep --color=always";
@@ -39,14 +42,16 @@ in
     feh
     mpv
     zathura
+    #calibre
     neofetch
     yt-dlp
     lsof
     p7zip
+    pciutils
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
-    exa # ls
+    eza # ls
     bat # cat
     fd # find
     duf # du
@@ -61,12 +66,15 @@ in
     cargo
     go
     gnumake
+    stdenv.cc.cc.lib
     nix-prefetch-git
     # BUILD POLYBAR
     #cmake
     #gnumake
     sphinx
     pkg-config
+    tesseract4
+    leptonica
     # big non gui
     #texlive.combined.scheme-basic
     #texlive.combined.scheme-medium
@@ -76,9 +84,11 @@ in
     cinnamon.nemo
     gimp
     spotify
-    transmission-gtk
-    teams
+    qbittorrent
     yacreader
+    libreoffice-qt
+    google-chrome
+    blender
   ];
 
   home.pointerCursor = {
@@ -100,7 +110,7 @@ in
     #gtk3.extraConfig."gtk-cursor-theme-size" = 24;
     #gtk4.extraConfig."gtk-cursor-theme-size" = 24;
     enable = true;
-    theme =  {
+    theme = {
       #package = pkgs.gnome.gnome-themes-extra;
       #name = "Adwaita-dark";
       package = pkgs.yaru-theme;

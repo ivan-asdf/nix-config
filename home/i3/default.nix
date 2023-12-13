@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 let
   mod = "Mod4";
-  terminal = "alacritty";
+  terminal = "kitty";
   #menu = "dmenu_run";
   menu = "rofi -show drun -show-icons";
 in
@@ -55,19 +55,6 @@ in
     };
 
     extraConfig = builtins.readFile ./themes/${config.custom.theme};
-  };
-
-  programs.kitty = {
-    enable = false;
-    font.name = "Hack";
-    #font.name = "Hack Nerd Font";
-    theme = "Catppuccin-Latte";
-    settings = {
-      confirm_os_window_close = 0;
-      sync_to_monitor = "no";
-      repaint_delay = 3;
-      input_delay = 1;
-    };
   };
 }
 

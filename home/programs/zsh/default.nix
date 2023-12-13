@@ -7,7 +7,7 @@
 
     enableCompletion = true; # somesomething add bla bla for system pkgs completion!??!
     enableAutosuggestions = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     historySubstringSearch = {
       enable = true;
       searchUpKey = "^P";

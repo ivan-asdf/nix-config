@@ -34,7 +34,7 @@ in
       # '%' pipes output to ui, '$' runs in seperate shell
       unarchive = ''%{{
         case "$f" in
-          *.zip) unzip "$f" ;;
+          *.zip | *.cbz) unzip "$f" -d "$f.unziped" ;;
           *.tar.gz) tar -xzvf "$f" ;;
           *.tar.bz2) tar -xjvf "$f" ;;
           *.tar) tar -xvf "$f" ;;
@@ -80,6 +80,8 @@ in
       &ctpv -s $id
       &ctpvquit $id
     '';
+
+    #previewer.source = ./previewer.sh
   };
 
   xdg.configFile."lf/icons".source = icons;
@@ -89,7 +91,10 @@ in
     # for drawing image previews
     (callPackage ./ctpv/ctpv.nix { })
     # used by ctpv
-    ueberzug # images
+    # images
+    chafa
+    #ueberzug # NO LONGER SUPPPORTED
+    #ueberzugpp # C++ fork
     imagemagick # svg
     atool # archives
     ffmpegthumbnailer # video

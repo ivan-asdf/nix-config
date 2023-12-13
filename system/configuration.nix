@@ -41,6 +41,7 @@
   boot.initrd.systemd.enable = true;
   boot.supportedFilesystems = [ "ntfs" ];
   #boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "idle=nowait" ];
 
   /*
     boot.loader = {
@@ -103,6 +104,12 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  # To make nvim python tree-siter syntax highlight work(need libstdc++)
+  environment = {
+    sessionVariables = {
+      LD_LIBRARY_PATH = "${pkgs.stdenv.cc.cc.lib}/lib";
+    };
+  };
   environment.systemPackages = with pkgs; [
     # basic user-programs
     firefox
@@ -135,10 +142,13 @@
 
   #nixpkgs.config.allowBroken = true;
   nixpkgs.config.allowUnfree = true;
+  services.xserver.videoDrivers = [ "nvidia" ];
   hardware.opengl.enable = true;
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.production;
-  hardware.nvidia.powerManagement.enable = true;
+  hardware.nvidia =
+    {
+      package = config.boot.kernelPackages.nvidiaPackages.production;
+      powerManagement.enable = true;
+    };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -195,7 +205,7 @@
   ];
 
   /* moved to xserver.sessionCommands
-  systemd.services.fooxset = {
+    systemd.services.fooxset = {
     script = ''
       ${pkgs.xorg.xset}/bin/xset -dpms
     '';
@@ -204,6 +214,6 @@
       Environment = [ "\"XAUTHORITY=/home/ivan/.Xauthority\"" "\"DISPLAY=:0\""];
     };
     wantedBy = [ "graphical-session.target" ];
-  };
+    };
   */
 }
