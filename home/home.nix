@@ -26,7 +26,7 @@ in
   #nixpkgs.config.allowUnfree = true;
 
   home.shellAliases = {
-    ls = "eza --icons";
+    ls = "eza --icons --group-directories-first";
     la = "ls -a";
     lla = "ls -al";
     grep = "grep --color=always";

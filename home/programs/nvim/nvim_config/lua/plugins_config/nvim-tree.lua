@@ -43,7 +43,9 @@ require("nvim-tree").setup({
   disable_netrw = true,
   hijack_cursor = true,
   sync_root_with_cwd = true,
-  sort_by = "case_sensetive",
+  sort = {
+     sorter = "case_sensitive",
+  },
   update_focused_file = {
     enable = true,
   },
@@ -82,15 +84,6 @@ require("nvim-tree").setup({
   },
   filters = {
     dotfiles = true,
-  },
-  view = {
-    --number = true;
-    mappings = {
-      list = {
-        { key = "l", action = "edit" },
-        { key = "h", action = "close_node" },
-      }
-    }
   },
   diagnostics = {
     enable = true
