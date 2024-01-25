@@ -74,6 +74,7 @@ in
     sphinx
     pkg-config
     tesseract4
+    scantailor
     leptonica
     # big non gui
     #texlive.combined.scheme-basic
@@ -89,6 +90,8 @@ in
     libreoffice-qt
     google-chrome
     blender
+    tor-browser-bundle-bin
+    vbam
   ];
 
   home.pointerCursor = {
