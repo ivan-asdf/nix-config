@@ -22,10 +22,10 @@ in
         "${mod}+Escape" = "exec ${pkgs.powermenu}/bin/powermenu";
 
         # Focus
-        "${mod}+h" = "focus left";
-        "${mod}+j" = "focus down";
-        "${mod}+k" = "focus up";
-        "${mod}+l" = "focus right";
+        "${mod}+h" = "focus left; exec $movemouse";
+        "${mod}+j" = "focus down; exec $movemouse";
+        "${mod}+k" = "focus up; exec $movemouse";
+        "${mod}+l" = "focus right; exec $movemouse";
 
         # Move
         "${mod}+Shift+h" = "move left";
@@ -54,7 +54,10 @@ in
       gaps.inner = 10;
     };
 
-    extraConfig = builtins.readFile ./themes/${config.custom.theme};
+    extraConfig = ''
+    ${builtins.readFile ./themes/${config.custom.theme}}
+    # When focus is moved mouse is moved at the center of newly focused window.
+    set $movemouse "sh -c 'eval `xdotool getactivewindow getwindowgeometry --shell`; xdotool mousemove $((X+WIDTH/2)) $((Y+HEIGHT/2))'"
+    '';
   };
 }
-
