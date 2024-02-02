@@ -43,11 +43,13 @@ in
     mpv
     zathura
     #calibre
+    pavucontrol
     neofetch
     yt-dlp
     lsof
     p7zip
     pciutils
+    xdotool
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -68,7 +70,6 @@ in
     gnumake
     stdenv.cc.cc.lib
     nix-prefetch-git
-    # BUILD POLYBAR
     #cmake
     #gnumake
     sphinx

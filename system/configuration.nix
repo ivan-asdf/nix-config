@@ -101,6 +101,7 @@
     isNormalUser = true;
     extraGroups = [ "wheel" "video" ];
   };
+  nix.settings.trusted-users = [ "root @wheel" ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -117,6 +118,7 @@
     ranger
     # basic utilities
     neovim
+    git
     wget
     efibootmgr
     htop

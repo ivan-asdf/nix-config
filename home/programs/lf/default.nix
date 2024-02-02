@@ -1,11 +1,11 @@
 { pkgs, ... }:
 let
   icons = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/icons.example";
-    sha256 = "sha256-FSwjydZ2I1OUBs9CNl/S+jo4SOEcKP9byt50FOk8YEQ=";
+    url = "https://raw.githubusercontent.com/gokcehan/lf/r31/etc/icons.example";
+    sha256 = "sha256-QbWr5FxJZ5cJqS4zg+qyNK8JUG6SdLmaFoBuFXi0q0M=";
   };
   colors = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/gokcehan/lf/master/etc/colors.example";
+    url = "https://raw.githubusercontent.com/gokcehan/lf/r31/etc/colors.example";
     sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
   };
 in

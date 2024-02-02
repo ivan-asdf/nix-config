@@ -44,7 +44,9 @@
         };
         defaultSession = "none+i3";
       };
-      layout = "us,bg(phonetic)";
-      xkbOptions = "grp:alt_shift_toggle";
+      xkb = {
+        layout = "us,bg(phonetic)";
+        options = "grp:alt_shift_toggle";
+      };
     };
 }
