@@ -48,7 +48,7 @@ in
       bars = [ ];
       # remove titlebars
       window.titlebar = false;
-      window.border = 4;
+      window.border = 3;
       gaps.outer = 13;
       gaps.top = 29 + 13;
       gaps.inner = 10;

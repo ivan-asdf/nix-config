@@ -8,7 +8,8 @@ let
   themeCss = builtins.readFile ./${builtins.getAttr config.custom.theme themesMapping};
 in
 {
-  home.packages = [ (pkgs.discord.override { withOpenASAR = true; }) ];
+  #home.packages = [ (pkgs.discord.override { withOpenASAR = true; }) ];
+  home.packages = [ pkgs.discord ];
   xdg.configFile."discord/settings.json".text = ''
     {
       "SKIP_HOST_UPDATE": true,
