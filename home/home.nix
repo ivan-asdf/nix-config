@@ -1,15 +1,7 @@
 { pkgs, ... }:
-let
-  python-packages = p: with p; [
-    toml
-    requests
-    pyperclip
-    lark
-  ];
-  python_with_packages = (pkgs.python3Full.withPackages python-packages);
-in
 {
   imports = [
+    ./packages.nix
     ./custom
     ./i3
     ./services
@@ -34,66 +26,6 @@ in
   };
 
   fonts.fontconfig.enable = true;
-  home.packages = with pkgs; [
-    # etc
-    flameshot
-    cloc
-    jq
-    feh
-    mpv
-    zathura
-    #calibre
-    pavucontrol
-    neofetch
-    yt-dlp
-    lsof
-    p7zip
-    pciutils
-    xdotool
-    # locksr where to put?!?
-    betterlockscreen
-    # default utils improvements
-    eza # ls
-    bat # cat
-    fd # find
-    duf # du
-    xcp # cp
-    ripgrep # grep
-    # dev
-    nodejs
-    python_with_packages
-    ruby
-    rubyPackages.rails
-    rustc
-    cargo
-    go
-    gnumake
-    stdenv.cc.cc.lib
-    nix-prefetch-git
-    #cmake
-    #gnumake
-    sphinx
-    pkg-config
-    tesseract4
-    scantailor
-    leptonica
-    # big non gui
-    #texlive.combined.scheme-basic
-    #texlive.combined.scheme-medium
-    texlive.combined.scheme-full
-    # big gui software
-    font-manager
-    cinnamon.nemo
-    gimp
-    spotify
-    qbittorrent
-    yacreader
-    libreoffice-qt
-    google-chrome
-    blender
-    tor-browser-bundle-bin
-    vbam
-  ];
 
   home.pointerCursor = {
     #package = pkgs.catppuccin-cursors.latteLight;
