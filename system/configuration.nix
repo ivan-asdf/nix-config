@@ -99,7 +99,7 @@
   #  Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ivan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" ];
+    extraGroups = [ "wheel" "video" "docker" ];
   };
   nix.settings.trusted-users = [ "root @wheel" ];
 
@@ -133,6 +133,7 @@
     networkmanager-l2tp
     networkmanagerapplet
   ];
+  programs.ssh.askPassword = "";
   programs.zsh.enable = true;
   users.users.ivan.shell = pkgs.zsh;
   environment.shellAliases = {
@@ -200,6 +201,7 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   #virtualisation.virtualbox.host.enable = true;
+  virtualisation.docker.enable = true;
   #users.extraGroups.vboxusers.members = [ "ivan" ];
 
   systemd.tmpfiles.rules = [
