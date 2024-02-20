@@ -24,7 +24,7 @@ require('plugins_config.lsp.null-ls')
 
 -- Colors color hashes #22AA33;
 require('nvim-highlight-colors').setup {}
--- Shows modified lines
+-- Shows git modified lines
 require('gitsigns').setup()
 -- Nvim line at bottom
 require('lualine').setup {}

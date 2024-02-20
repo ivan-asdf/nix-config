@@ -42,15 +42,15 @@ local plugins = {
   },
   "williamboman/mason-lspconfig.nvim", -- for usage with nvim-lspconfig
 
-  -- Treesitter
-  'nvim-treesitter/nvim-treesitter',   -- run= ':TSUpdate'
+  -- Treesitter(highlighting)
+  'nvim-treesitter/nvim-treesitter', -- run= ':TSUpdate'
   'windwp/nvim-ts-autotag',
 
-  -- Lsp config
+  -- Lsp config(suggestions, diagnostics, formating)
   'neovim/nvim-lspconfig', -- Configurations for Nvim LSP
 
-  -- Autocompletion/suggestions
-  'hrsh7th/cmp-nvim-lsp',  -- LSP source for nvim-cmp
+  -- Autocompletion/suggestions(I gues ui side for autocomplete)
+  'hrsh7th/cmp-nvim-lsp', -- LSP source for nvim-cmp
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',

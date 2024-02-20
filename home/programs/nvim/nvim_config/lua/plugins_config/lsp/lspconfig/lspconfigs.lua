@@ -10,7 +10,7 @@ require('lspconfig')['rust_analyzer'].setup {
   }
 }
 -- css ls and snipets
---Enable (broadcasting) snippet capability for completion
+-- Enable (broadcasting) snippet capability for completion
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require 'lspconfig'.cssls.setup {
@@ -19,6 +19,17 @@ require 'lspconfig'.cssls.setup {
 require 'lspconfig'.jsonls.setup {
   capabilities = capabilities,
   cmd = { "json-languageserver", "--stdio" }
+}
+require 'lspconfig'.html.setup {
+  capabilities = capabilities,
+  filetypes = {
+    'html',
+  },
+  settings = {
+    html = {
+      printWidth = 80, -- Wrap lines at 80 characters
+    }
+  }
 }
 
 --require'lspconfig'.rnix.setup{}
@@ -66,8 +77,22 @@ require 'lspconfig'.lua_ls.setup {
     },
   },
 }
-
-local servers = { 'pyright', 'solargraph', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
+require 'lspconfig'.pyright.setup {
+  -- https://github.com/microsoft/pyright/blob/main/docs/settings.md
+  -- on_attach = on_attach,
+  settings = {
+    pyright = {
+      autoImportCompletion = true, },
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        diagnosticMode = 'openFilesOnly',
+        useLibraryCodeForTypes = true,
+        typeCheckingMode = 'off' }
+    }
+  }
+}
+local servers = { 'solargraph', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = lsp_flags

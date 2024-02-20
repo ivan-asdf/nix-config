@@ -28,7 +28,7 @@ vim.cmd.colorscheme 'catppuccin'
 vim.o.cursorline = true
 -- vim.cmd([[highlight iCursor guifg=pink guibg=red]]) -- what dis do?
 -- vim.cmd([[set guicursor=i:block-iCursor]])
-vim.cmd([[set guicursor=i:block-Cursor]])
+--vim.cmd([[set guicursor=i:block-Cursor]])
 -- vim.cmd([[set guicursor+=i:blinkon1-iCursor/iCursor]])
 
 vim.cmd([[
