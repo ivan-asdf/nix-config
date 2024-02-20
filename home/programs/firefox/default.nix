@@ -44,6 +44,11 @@ in
         # 2 - auto use content theme based on firefox theme addon, 0,1 - overrides
         #"layout.css.prefers-color-scheme.content-override" =  3;
 
+        # Disable hardware acceleration
+        # There is the minor issue of firefox not re-rendering
+        # when unfocused and switching i3 workspaces
+        "layers.acceleration.disabled" = true;
+
         "browser.fullscreen.autohide" = false;
 
         "ui.systemUsesDarkTheme" = darkMode;
