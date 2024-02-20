@@ -19,3 +19,4 @@ bindkey '^[[Z' autosuggest-accept
 export AUTO_NOTIFY_THRESHOLD=5
 AUTO_NOTIFY_IGNORE+=("git diff" "lf")
 
+PATH=$PATH:$HOME/go/bin

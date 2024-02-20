@@ -44,6 +44,8 @@ in
         # 2 - auto use content theme based on firefox theme addon, 0,1 - overrides
         #"layout.css.prefers-color-scheme.content-override" =  3;
 
+        "browser.fullscreen.autohide" = false;
+
         "ui.systemUsesDarkTheme" = darkMode;
 
 
