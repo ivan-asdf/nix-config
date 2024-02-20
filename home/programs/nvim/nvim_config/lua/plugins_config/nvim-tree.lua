@@ -44,7 +44,7 @@ require("nvim-tree").setup({
   hijack_cursor = true,
   sync_root_with_cwd = true,
   sort = {
-     sorter = "case_sensitive",
+    sorter = "case_sensitive",
   },
   update_focused_file = {
     enable = true,
@@ -91,4 +91,3 @@ require("nvim-tree").setup({
   on_attach = my_on_attach
 })
 require('nvim-web-devicons').setup()
-

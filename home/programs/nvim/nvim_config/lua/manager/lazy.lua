@@ -59,7 +59,7 @@ local plugins = {
   'saadparwaiz1/cmp_luasnip', -- Snippets source for nvim-cmp
   'L3MON4D3/LuaSnip',         -- Snippets plugin
 
-  -- Null ls
+  -- Null ls(Lsp config for python)
   'jose-elias-alvarez/null-ls.nvim',
 
   -- Telescope
