@@ -60,7 +60,7 @@ require("nvim-tree").setup({
     show_on_open_dirs = false,
   },
   renderer = {
-    group_empty = true,
+    group_empty = false,
     highlight_git = true,
     add_trailing = true,
     highlight_opened_files = "name",
@@ -80,6 +80,7 @@ require("nvim-tree").setup({
       show = {
         folder_arrow = false
       },
+      git_placement = "after",
     }
   },
   filters = {

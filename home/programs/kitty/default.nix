@@ -9,6 +9,13 @@
       repaint_delay = 3;
       input_delay = 1;
     };
+    # keybindings = {
+    #   # kitty_mod is Ctrl+Shift
+    #   "kitty_mod+t" = "no_op";
+    #   "kitty_mod+T" = "no_op";
+    #   "kitty_mod+space" = "no_op";
+    #   "command+t" = "no_op";
+    # };
     extraConfig = ''
       # IEC Power Symbols
       symbol_map U+23FB-U+23FE Symbols Nerd Font

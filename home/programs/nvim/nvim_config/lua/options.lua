@@ -17,7 +17,7 @@ vim.cmd([[set nowrap]])
 vim.cmd([[set colorcolumn=80]])
 vim.cmd([[set cmdheight=2]])
 vim.cmd([[set updatetime=50]])
-
+vim.cmd([[filetype plugin indent on]])
 
 -- vim.cmd([[colorscheme onedark]])
 vim.o.termguicolors = true

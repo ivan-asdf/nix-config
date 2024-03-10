@@ -77,8 +77,22 @@ local plugins = {
   'akinsho/bufferline.nvim',
   'moll/vim-bbye', -- Adds :Bdelete that closes buffer without closing window
 
-  -- Commentary
-  'tpope/vim-commentary'
+  -- -- Commentary
+  -- 'tpope/vim-commentary',
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    lazy = false,
+  },
+
+  -- kdl file format - basic vim file type(required to be able to Comment.nvim)
+  { "imsnif/kdl.vim", event = "BufReadPre *.kdl" },
+
+  -- hightlights in red trailing whitespace, adds :StripWhitespace
+  'ntpeters/vim-better-whitespace'
+
 }
 
 require("lazy").setup(plugins)
