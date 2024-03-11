@@ -1,0 +1,11 @@
+# PS1='\[\e[0;1;38;5;76m\]\u \[\e[0;1;38;5;26m\]\w \[\e[0m\]$(git branch 2>/dev/null | grep '"'"'^*'"'"' | colrm 1 2) \[\e[0;38;5;22m\]\$ \[\e[0m\]'
+# Automaticly added to bash.InitExtra by starship
+# eval "$(starship init bash)"
+
+HISTCONTROL=ignoredups:erasedups
+HISTFILE=~/.cache/bash/history
+
+PATH=$PATH:$HOME/go/bin
+
+# Automatically added to zsh.initExtra by atuin
+#eval "$(atuin init bash)"

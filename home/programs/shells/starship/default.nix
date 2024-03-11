@@ -1,9 +1,4 @@
 {...} : {
-  programs.bash = {
-    enable = true;
-    bashrcExtra = builtins.readFile ./bashrc;
-  };
-
   programs.starship = {
     enable = true;
   };

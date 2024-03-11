@@ -64,9 +64,7 @@
       # bugged ^[[Z which is shift + tab acts as Esc ^[
       #source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
     '';
-    initExtra = ''
-      ${builtins.readFile ./zshrc}
-    '';
+    initExtra = builtins.readFile ./zshrc;
     #TODO
     # make nix-shell use fsh instead of bash
     # how do auto notify exclusions work ?!? make nix-shell -p cmatrix for example not notify when exit

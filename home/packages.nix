@@ -63,7 +63,6 @@ in
     duf # du
     xcp # cp
     ripgrep # grep
-    nushell
     # dev
     nodejs
     python_with_packages

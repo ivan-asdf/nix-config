@@ -4,13 +4,12 @@
     ./rofi
     ./alacritty
     ./kitty
-    ./bash
-    ./zsh
     ./firefox
     ./discord
     ./lf
     ./multiplexers/tmux
     ./multiplexers/zellij
+    ./shells
   ];
 
   # programs.wezterm = {

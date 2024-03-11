@@ -1,5 +1,5 @@
 #bindkey -e # enables emacs keybind
-# this is automaticaly included by nix
+# Automatically added to zsh.initExtra by starship
 #eval "$(starship init zsh)"
 
 # highlight selection when cycling with Tab
@@ -24,3 +24,6 @@ export AUTO_NOTIFY_THRESHOLD=5
 AUTO_NOTIFY_IGNORE+=("git diff" "lf")
 
 PATH=$PATH:$HOME/go/bin
+
+# Automatically added to zsh.initExtra by atuin
+#eval "$(atuin init zsh)"
