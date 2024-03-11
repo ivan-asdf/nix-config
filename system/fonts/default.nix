@@ -17,6 +17,8 @@
       times-newer-roman
       # Sans
       helvetica-neue-lt-std
+      # Other
+      noto-fonts-cjk
     ];
     enableDefaultPackages = false;
     fontconfig = {

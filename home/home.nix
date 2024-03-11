@@ -39,6 +39,7 @@
   };
   home.sessionVariables = {
     #XCURSOR_THEME = "phinger-cursors";
+    TERMINAL = "kitty";
     XCURSOR_SIZE = "24";
   };
   gtk = {
