@@ -1,6 +1,5 @@
 { pkgs, ... }:
 let
-  g = ps: ps.callPackage ./packages/whoisdomain.nix { };
   python-packages = p: with p; [
     toml
     requests
@@ -16,13 +15,25 @@ let
     pip
     beautifulsoup4
     urllib3
-    #(g p)
+    numpy
+    opencv4
+    #tk
+    pygobject3
+    wxpython
+    ephem
+    pytz
+    ffmpeg-python
+    #whisper
+    openai-whisper
+    #cmake
+    #colour
     (callPackage ./packages/whoisdomain.nix { })
+    (callPackage ./packages/colour-science.nix { })
+    (callPackage ./packages/pywhispercpp.nix { })
+    (callPackage ./packages/color-temp.nix { })
+
   ];
-  #pk = python-packages;
   python_with_packages = (pkgs.python3Full.withPackages python-packages);
-  #python_with_packages = (pkgs.python3Full.withPackages (ps: with ps; [(python-packages ps)]);
-  #python_with_packages = pkgs.python3Full.withPackages(ps: [(g ps)]);
 in
 {
   home.packages = with pkgs; [
@@ -33,7 +44,6 @@ in
     feh
     mpv
     zathura
-    zellij
     ssh-askpass-fullscreen
     lxqt.lxqt-openssh-askpass
     #calibre
@@ -53,6 +63,7 @@ in
     duf # du
     xcp # cp
     ripgrep # grep
+    nushell
     # dev
     nodejs
     python_with_packages
@@ -69,13 +80,15 @@ in
     gnumake
     stdenv.cc.cc.lib
     nix-prefetch-git
-    #cmake
+    nix-index
+    cmake
     #gnumake
     sphinx
     pkg-config
     tesseract4
     scantailor
     leptonica
+    cudatoolkit
     # big non gui
     #texlive.combined.scheme-basic
     #texlive.combined.scheme-medium

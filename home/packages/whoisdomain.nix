@@ -16,21 +16,4 @@ buildPythonPackage rec {
     dist = "py3";
     python = "py3";
   };
-
-  #nativeBuildInputs = [ pkgs.hatch ];
-  #buildPhase = ''
-  #echo '[build-system]' > config.toml
-  #echo 'requires = ["hatch"]' >> config.toml
-  #echo 'build-backend = "hatchling.build"' >> config.toml
-  #echo "MAIKAITSDA"
-  #ls
-  #pwd
-  #echo '[build-system]
-  #requires = ["hatch"]
-  #build-backend = "hatchling.build"' > config.toml
-
-  #HATCH_CONFIG=""; hatch build
-  #hatch --config config.toml build
-  #'';
-  #installCheck = false;
 }
