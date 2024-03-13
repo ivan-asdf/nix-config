@@ -1,4 +1,4 @@
-{ lib, ... }: {
+{ lib, config, ... }: {
   # This will be read by programs which configure their themes
   options.custom.theme = lib.mkOption {
     type = lib.types.str;
@@ -19,4 +19,15 @@
   # webcord(electron wrapper) you cannot specify theme
   # Other: powercord, armcord
   # Other niche or terminal: discordo, cordless
+
+  options.custom.font = lib.mkOption {
+    type = lib.types.str;
+    default = "Cascadia code";
+    description = ''
+      A default font to be used for configuration by various programs
+    '';
+  };
+  # config.custom.font = "Hack";
+  # config.custom.font = "Fira Code";
+  # config.custom.font = "Operator Mono Medium";
 }

@@ -22,7 +22,7 @@ in
       "bar/bar1" = {
         font = [
           "Symbols Nerd Font:size=16;4"
-          "Hack:size=12;4"
+          "${config.custom.font}:size=12;4"
           "Noto Color Emoji:scale=8;2"
           "Weather Icons:size=12;1"
         ];

@@ -40,10 +40,6 @@ configuration {
   highlight: bold italic;
   scrollbar: true;
 
-  mainfont: "Hack 16";
-  bigfont: "Hack 21";
-  font: @mainfont;
-
   text-color: @foreground;
   background-color: transparent;
 }

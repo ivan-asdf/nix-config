@@ -2,15 +2,17 @@
   fonts = {
     packages = with pkgs; [
       # Monospace
-      #fira-code
-      #fira-code-symbols
-      #jetbrains-mono
-      #source-code-pro
+      fira-code
+      cascadia-code
+      # fira-code-symbols
+      # jetbrains-mono
+      # source-code-pro
       hack-font
-      #(nerdfonts.override { fonts = [ "Hack" ]; })
+      # (nerdfonts.override { fonts = [ "Hack" ]; })
 
       # Icons & Emoji
       (pkgs.callPackage ./nerd {})
+      (pkgs.callPackage ./operator-mono {})
       weather-icons
       noto-fonts-emoji
       # Serif

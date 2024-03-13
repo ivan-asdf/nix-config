@@ -1,7 +1,8 @@
 { config, ... }: {
   programs.kitty = {
     enable = true;
-    font.name = "Hack";
+    font.name = config.custom.font;
+    font.size = 11;
     #theme = "Catppuccin-Latte";
     settings = {
       confirm_os_window_close = 0;
