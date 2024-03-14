@@ -33,12 +33,15 @@ in
 
       # '%' pipes output to ui, '$' runs in seperate shell
       unarchive = ''%{{
+        BASENAME="''${f%%.*}"
         case "$f" in
-          *.zip | *.cbz) unzip "$f" -d "$f.unziped" ;;
-          *.tar.gz) tar -xzvf "$f" ;;
-          *.tar.bz2) tar -xjvf "$f" ;;
-          *.tar) tar -xvf "$f" ;;
-          *.rar) unrar x "$f" "$(basename "$f" ".rar")/" ;;
+          #*.zip | *.cbz) unzip "$f" -d $BASENAME;;
+          #*.tar.gz) tar -xzvf "$f" ;;
+          #*.tar.bz2) tar -xjvf "$f" ;;
+          #*.tar) tar -xvf "$f" ;;
+          #*.rar) unrar x "$f" $BASENAME ;;
+          *.zip | *.cbz | *.tar* | *.rar) atool -x "$f" ;;
+          *.iso) echo $BASENAME; 7z x "$f" -o"$BASENAME" ;;
           *) echo "Unsupported format";;
         esac
       }}'';
