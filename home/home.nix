@@ -25,7 +25,6 @@
     mux = "tmuxinator";
   };
 
-  fonts.fontconfig.enable = true;
 
   home.pointerCursor = {
     #package = pkgs.catppuccin-cursors.latteLight;
@@ -41,7 +40,11 @@
     #XCURSOR_THEME = "phinger-cursors";
     TERMINAL = "kitty";
     XCURSOR_SIZE = "24";
+    EZA_COLORS="mp=38;5;30;4";
   };
+
+  fonts.fontconfig.enable = true;
+
   gtk = {
     #gtk2.extraConfig = "gtk-cursor-theme-size=24";
     #gtk3.extraConfig."gtk-cursor-theme-size" = 24;

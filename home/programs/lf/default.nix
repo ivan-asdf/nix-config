@@ -4,10 +4,10 @@ let
     url = "https://raw.githubusercontent.com/gokcehan/lf/r31/etc/icons.example";
     sha256 = "sha256-QbWr5FxJZ5cJqS4zg+qyNK8JUG6SdLmaFoBuFXi0q0M=";
   };
-  colors = pkgs.fetchurl {
-    url = "https://raw.githubusercontent.com/gokcehan/lf/r31/etc/colors.example";
-    sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
-  };
+  # colors = pkgs.fetchurl {
+  #   url = "https://raw.githubusercontent.com/gokcehan/lf/r31/etc/colors.example";
+  #   sha256 = "sha256-cYJlXuRjuotQ1aynPG5+UGK2nBBNg/6xRiGs2mBpKeY=";
+  # };
 in
 {
   programs.lf = {
@@ -102,7 +102,8 @@ in
   };
 
   xdg.configFile."lf/icons".source = icons;
-  xdg.configFile."lf/colors".source = colors;
+  # If not set it will use default - dircolors(LS_COLORS)
+  # xdg.configFile."lf/colors".source = colors;
 
   home.packages = with pkgs; [
     # for drawing image previews

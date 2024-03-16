@@ -1,9 +1,11 @@
 { pkgs, ... }: {
   imports = [
-    ./starship
     ./bash
     ./zsh
     ./nushell
+
+    ./starship
+    ./dircolors
   ];
 
   programs.atuin = {
