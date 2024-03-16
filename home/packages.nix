@@ -38,6 +38,7 @@ in
 {
   home.packages = with pkgs; [
     # etc
+    zip
     flameshot
     cloc
     jq
@@ -54,6 +55,7 @@ in
     p7zip
     pciutils
     xdotool
+    xorriso # manipulate iso
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -63,6 +65,7 @@ in
     duf # du
     xcp # cp
     ripgrep # grep
+    du-dust # du
     # dev
     nodejs
     python_with_packages
@@ -100,8 +103,8 @@ in
     qbittorrent
     yacreader
     libreoffice-qt
-    google-chrome
-    chromium
+    # google-chrome
+    # chromium
     blender
     tor-browser-bundle-bin
     vbam
