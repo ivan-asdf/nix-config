@@ -33,7 +33,7 @@ let
     (callPackage ./packages/color-temp.nix { })
 
   ];
-  python_with_packages = (pkgs.python3Full.withPackages python-packages);
+  python_with_packages = (pkgs.python3.withPackages python-packages);
 in
 {
   home.packages = with pkgs; [
@@ -56,6 +56,8 @@ in
     pciutils
     xdotool
     xorriso # manipulate iso
+    exiftool # file info
+    trashy
     # locksr where to put?!?
     betterlockscreen
     # default utils improvements
@@ -66,14 +68,16 @@ in
     xcp # cp
     ripgrep # grep
     du-dust # du
+    fzf
     # dev
     nodejs
+    typescript
     python_with_packages
     hatch
     docker-compose
     sqlitebrowser
     dbeaver
-    pgadmin4
+    # pgadmin4
     ruby
     rubyPackages.rails
     rustc

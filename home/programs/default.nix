@@ -4,9 +4,8 @@
     ./rofi
     ./firefox
     ./discord
-    ./lf
-    ./multiplexers/tmux
-    ./multiplexers/zellij
+    ./file_managers
+    ./multiplexers
     ./shells
     ./terminals
   ];

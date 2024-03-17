@@ -66,6 +66,21 @@ in
       dD = "delete";
       dd = "cut";
 
+      # Remap
+      # dd - trash
+      # dD - rm
+      # y - yank
+      # x - cut
+      # e - extract (edit is removed)
+      # o - open (remove arrow opens, this only way open)
+      # Unbinded this way
+      # e - edit is removed (what to use for edit?)
+      # arrow open - its not "o"
+
+      # Extra func
+      # make "r" able to enter nvim if multiple selection to rename
+
+
       #"<c-h>" = "set hidden!";
       # for some reason <backspace> coresponds to <c-h>
       "<backspace>" = "set hidden!";

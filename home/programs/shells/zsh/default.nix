@@ -6,7 +6,9 @@
     dotDir = ".config/zsh";
 
     enableCompletion = true; # somesomething add bla bla for system pkgs completion!??!
-    enableAutosuggestions = true;
+    autosuggestion = {
+      enable = true;
+    };
     syntaxHighlighting.enable = true;
     historySubstringSearch = {
       enable = true;

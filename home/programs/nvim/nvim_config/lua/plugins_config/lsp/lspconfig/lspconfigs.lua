@@ -92,7 +92,7 @@ require 'lspconfig'.pyright.setup {
     }
   }
 }
-local servers = { 'solargraph', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab' }
+local servers = { 'solargraph', 'gopls', 'cssls', 'clangd', 'bashls', 'texlab', 'tsserver' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = lsp_flags
