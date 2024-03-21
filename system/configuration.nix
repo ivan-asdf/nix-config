@@ -2,9 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
-{
+{ config, pkgs, ... }: {
   imports =
     [
       # Include the results of the hardware scan.
@@ -13,18 +11,43 @@
       ./fonts
     ];
 
-  fileSystems."/home/ivan/nfs" =
-    {
-      device = "192.168.0.111:/home/ivan/nfs";
-      fsType = "nfs";
-      options = [ "x-systemd.automount" "noauto" "soft" "intr" "bg" "rw" ];
-    };
+  fileSystems."/home/ivan/nfs" = {
+    device = "192.168.0.111:/home/ivan/nfs";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.device-timeout=0.5" # this doesnt seem to work with nfs the same was as hdd
+      "x-systemd.idle-timeout=600" # not sure if this does anything
 
-  #fileSystems."/home/ivan/wd_hdd" = {
-  #device = "/dev/disk/by-uuid/ffe9851f-5233-4ecb-980c-8bdd3696d127";
-  #fsType = "ext4";
-  #options = [ "x-systemd.automount" "noauto" ];
-  #};
+      "noauto" # dont mount durring boot
+      # "nofail" # dont fail boot if fails during boot
+      # "bg"
+
+      # nfs specific
+      "soft"
+      "intr"
+      "timeo=30"
+      "retrans=3"
+      "nfsvers=3"
+    ];
+  };
+
+  fileSystems."/home/ivan/tosh_hdd" = {
+    device = "/dev/disk/by-uuid/9a1de96b-5327-4a79-86d4-f06ccee488b0";
+    fsType = "ext4";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.device-timeout=0.5"
+      "x-systemd.idle-timeout=600"
+      "noauto"
+      "X-mount.owner=ivan"
+    ];
+  };
+
+  services.udisks2 = {
+    enable = true;
+    mountOnMedia = true;
+  };
 
   # Use the systemd-boot EFI boot loader.
   boot.loader = {
@@ -100,6 +123,7 @@
   users.users.ivan = {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "docker" ];
+    uid = 1000;
   };
   nix.settings.trusted-users = [ "root @wheel" ];
 
@@ -190,7 +214,7 @@
       description = "Disables an acpi device that on its own wakes up pc from hibernation";
       script = ''
       cat /proc/acpi/wakeup
-      # echo PTXH > /proc/acpi/wakeup 
+      # echo PTXH > /proc/acpi/wakeup
       echo "disabled acpi device, error: " $?
       cat /proc/acpi/wakeup
       '';
