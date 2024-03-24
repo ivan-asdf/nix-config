@@ -1,7 +1,9 @@
 { pkgs, config, ... }:
 let
-  weather_script = pkgs.callPackage ./scripts/weather.nix {} ;
-  mic_script = pkgs.callPackage ./scripts/mic.nix {} ;
+  weather_script = pkgs.callPackage ./scripts/weather.nix { };
+  mic_script = pkgs.callPackage ./scripts/mic.nix { };
+  brightness_script = pkgs.callPackage ./scripts/brightness.nix { };
+  clickable_background = "#090618";
 in
 {
   services.polybar = {
@@ -30,20 +32,22 @@ in
         override-redirect = true;
         # to hide it when fullscreen
         wm-restack = "i3";
+        enable-ipc = true;
         width = "100%";
         #offset-x = "1%";
         height = 29;
-        padding-right = 1;
+        # padding-right = 0;
+        padding-left = 1;
 
         background = "\${colors.background}";
         foreground = "\${colors.text}";
 
         tray-position = "center";
         tray-detached = true;
-        tray-offset-x = 400;
+        tray-offset-x = 300;
 
         seperator = "|";
-        module-margin = 2;
+        module-margin = "15px";
         /*
         modules-left = "i3 xwindow";
         modules-center = "";
@@ -51,7 +55,7 @@ in
         */
         modules-left = "cpu temperature memory filesystem network";
         modules-center = "i3";
-        modules-right = "powermenu volume mic weather date";
+        modules-right = "brightness xkeyboard volume mic weather date powermenu";
       };
       "module/i3" = {
         type = "internal/i3";
@@ -79,11 +83,12 @@ in
       };
       "module/volume" = {
         type = "internal/pulseaudio";
-        format.volume = "<ramp-volume> <label-volume>";
+        format.volume = "%{B${clickable_background}} <ramp-volume> <label-volume> %{B-}";
         #label.muted.text = "🔇";
         #ramp.volume = [ "🔈" "🔉" "🔊" ];
         label.muted.text = "󰸈 -- ";
         ramp.volume = [ "󰕿" "󰖀" "󰕾" ];
+        label-background = "${clickable_background}";
         click.right = "pavucontrol &";
       };
       "module/cpu" = {
@@ -147,8 +152,8 @@ in
       };
       "module/powermenu" = with pkgs; {
         type = "custom/text";
-        content = "";
-        # Since the unit file set PATH explicitly it overrides the systemctl show-environment PATH
+        content = "%{B${clickable_background}}  %{B-}";
+        width = "300pt";
         click-left = "${powermenu}/bin/powermenu";
       };
 
@@ -164,22 +169,20 @@ in
         click-right = "${pkgs.pavucontrol}/bin/pavucontrol -t 4 &";
         click-left = "${pkgs.pulseaudio}/bin/pactl set-source-mute @DEFAULT_SOURCE@ toggle";
         interval = "0.2";
+        label-background = "${clickable_background}";
       };
       #"module/mpd" = {
       #type = "internal/mpd";
       #};
 
-      # Seems to be not supported on my hardware(backlight also not)
-      #"module/backlight" = {
-      #output = "DP-4";
-      #type = "internal/xbacklight";
-      #format = "<label>";
-      #label = "%percentage%";
-      #};
-      # Nix throws a infinite recursion error
-      #"module/board" = {
-      #type = internal/xkeyboard;
-      #};
+      "module/xkeyboard" = {
+        type = "internal/xkeyboard";
+        format = "<label-layout>";
+        label-layout = "  %icon% ";
+        layout-icon-0 = "us;US";
+        layout-icon-1 = "bg;BG";
+        label-layout-background = "${clickable_background}";
+      };
       # They are inline inside bar
       #"module/menu-apps" = {
       #type = "custom/menu";
@@ -188,6 +191,18 @@ in
       #menu-0-1 = "SHOWDOWN 󰤄";
       #label-open = "Apps";
       #};
+      "module/brightness" = {
+        type = "custom/ipc";
+        label = " %output% ";
+        format-background = "${clickable_background}";
+
+        initial = 1;
+        hook-0 = "${brightness_script}/bin/brightness get";
+        hook-1 = "${brightness_script}/bin/brightness up";
+        hook-2 = "${brightness_script}/bin/brightness down";
+        scroll-up = "#brightness.hook.1";
+        scroll-down = "#brightness.hook.2";
+      };
 
     };
   };
