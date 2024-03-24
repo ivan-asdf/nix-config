@@ -86,7 +86,7 @@ in
         format.volume = "%{B${clickable_background}} <ramp-volume> <label-volume> %{B-}";
         #label.muted.text = "🔇";
         #ramp.volume = [ "🔈" "🔉" "🔊" ];
-        label.muted.text = "󰸈 -- ";
+        label.muted.text = "%{B${clickable_background}} 󰸈 -- %{B-}";
         ramp.volume = [ "󰕿" "󰖀" "󰕾" ];
         label-background = "${clickable_background}";
         click.right = "pavucontrol &";
@@ -200,12 +200,12 @@ in
         hook-0 = "${brightness_script}/bin/brightness get";
         hook-1 = "${brightness_script}/bin/brightness up";
         hook-2 = "${brightness_script}/bin/brightness down";
+        hook-3 = "${brightness_script}/bin/brightness reset";
         scroll-up = "#brightness.hook.1";
         scroll-down = "#brightness.hook.2";
+        click-right = "#brightness.hook.3";
       };
-
     };
   };
-
 }
 
