@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.yazi = {
     enable = true;
     settings = {
@@ -33,4 +33,10 @@
 
   xdg.configFile."yazi/theme.toml".source = ./theme.toml;
   xdg.configFile."yazi/init.lua".source = ./init.lua;
+
+  home.packages = with pkgs; [
+    # ffmpegthumbnailer # video thumbnails
+    # poppler_utils # pdf
+    unar
+  ];
 }

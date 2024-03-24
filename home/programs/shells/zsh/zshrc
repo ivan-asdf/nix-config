@@ -21,7 +21,7 @@ bindkey '^[[Z' autosuggest-accept
 
 # for auto-notify plugin
 export AUTO_NOTIFY_THRESHOLD=5
-AUTO_NOTIFY_IGNORE+=("git diff" "lf")
+AUTO_NOTIFY_IGNORE+=("git diff" "lf" "yazi")
 
 PATH=$PATH:$HOME/go/bin
 

@@ -1,4 +1,12 @@
 { pkgs, ... }:
+let
+  git-alias = pkgs.fetchFromGitHub {
+    owner = "GitAlias";
+    repo = "gitalias";
+    rev = "7b941c3";
+    sha256 = "sha256-IvHM6mRtoeVm01cUmTkKqjm6/n3Izau89B7MT69Afo0=";
+  };
+in
 {
   imports = [
     ./packages.nix
@@ -40,7 +48,7 @@
     #XCURSOR_THEME = "phinger-cursors";
     TERMINAL = "kitty";
     XCURSOR_SIZE = "24";
-    EZA_COLORS="mp=38;5;30;4";
+    EZA_COLORS = "mp=38;5;30;4";
   };
 
   fonts.fontconfig.enable = true;
@@ -72,6 +80,20 @@
     userName = "Ivan";
     userEmail = "ivan.asdf0@gmail.com";
     extraConfig.init.defaultBranch = "master";
+    extraConfig.include.path = "${git-alias}/gitalias.txt";
+  };
+
+  # programs.lazygit = {
+  #   enable = true;
+  #   settings = {
+  #     keybindings = {
+  #     };
+  #   };
+  # };
+
+  services.udiskie = {
+    enable = true;
+    tray = "never";
   };
 }
 

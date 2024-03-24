@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1710714957,
-        "narHash": "sha256-eZCxuF58YWgaJMMRrn8oRkwRhxooe5kBS/s2wRVr9PA=",
+        "lastModified": 1711133180,
+        "narHash": "sha256-WJOahf+6115+GMl3wUfURu8fszuNeJLv9qAWFQl3Vmo=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "7b3fca5adcf6c709874a8f2e0c364fe9c58db989",
+        "rev": "1c2c5e4cabba4c43504ef0f8cc3f3dfa284e2dbb",
         "type": "github"
       },
       "original": {
@@ -20,13 +20,33 @@
         "type": "github"
       }
     },
+    "nix-index-database": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1711249705,
+        "narHash": "sha256-h/NQECj6mIzF4XR6AQoSpkCnwqAM+ol4+qOdYi2ykmQ=",
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "rev": "34519f3bb678a5abbddf7b200ac5347263ee781b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "nix-index-database",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1710631334,
-        "narHash": "sha256-rL5LSYd85kplL5othxK5lmAtjyMOBg390sGBTb3LRMM=",
+        "lastModified": 1711163522,
+        "narHash": "sha256-YN/Ciidm+A0fmJPWlHBGvVkcarYWSC+s3NTPk/P+q3c=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "c75037bbf9093a2acb617804ee46320d6d1fea5a",
+        "rev": "44d0940ea560dee511026a53f0e2e2cde489b4d4",
         "type": "github"
       },
       "original": {
@@ -37,11 +57,11 @@
     },
     "nur": {
       "locked": {
-        "lastModified": 1710758009,
-        "narHash": "sha256-E60fc4liidYWo+0FKGwDFndhcmV40ZNwfDbROTwaInA=",
+        "lastModified": 1711310052,
+        "narHash": "sha256-x2uMh3JFblIZ+uLsSQY1Px1/II4sKk07qvvxbOQ7V+k=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "fc4f9acb61749a12a7ff7ac4020142b121a5dd25",
+        "rev": "1393242e65123b8752087e0f997626071e1f8656",
         "type": "github"
       },
       "original": {
@@ -53,6 +73,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "nix-index-database": "nix-index-database",
         "nixpkgs": "nixpkgs",
         "nur": "nur"
       }

@@ -27,4 +27,7 @@
     #smug
     tmuxinator
   ];
+  # PROBLEMS
+  # It doesnt render nvim properly sometimes (tmux does)
+  # It doesnt render image preview (tmux does somewhat)
 }

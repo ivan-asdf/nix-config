@@ -112,6 +112,9 @@ format = '\[[$symbol($version)]($style)\]'
 
 [directory]
 read_only = ' '
+# Dispaly full path instead of just folder
+truncation_length = 0
+truncate_to_repo = false
 
 [docker_context]
 symbol = ' '
@@ -130,7 +133,8 @@ symbol = ' '
 format = '\[[$symbol$branch]($style)\]'
 
 [git_branch]
-symbol = ' '
+# symbol = ' '
+symbol = ' '
 format = '\[[$symbol$branch(:$remote_branch)]($style)\]'
 always_show_remote = true
 
@@ -142,6 +146,11 @@ tag_symbol = '  '
 [git_metrics]
 disabled = false
 format = '(\[([+$added]($added_style))( [-$deleted]($deleted_style))\])'
+
+[git_status]
+diverged = "󰹺"
+# behind = ""
+# ahead = ""
 
 [golang]
 symbol = ' '

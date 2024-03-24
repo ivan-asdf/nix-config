@@ -44,6 +44,7 @@ in
     jq
     feh
     mpv
+    iotop # realtime read/white speed
     zathura
     ssh-askpass-fullscreen
     lxqt.lxqt-openssh-askpass
@@ -57,6 +58,8 @@ in
     xdotool
     xorriso # manipulate iso
     exiftool # file info
+    testdisk # photorec
+    ffmpeg_5-full
     trashy
     # locksr where to put?!?
     betterlockscreen
@@ -68,7 +71,6 @@ in
     xcp # cp
     ripgrep # grep
     du-dust # du
-    fzf
     # dev
     nodejs
     typescript
@@ -86,7 +88,6 @@ in
     gnumake
     stdenv.cc.cc.lib
     nix-prefetch-git
-    nix-index
     cmake
     #gnumake
     sphinx
@@ -94,7 +95,7 @@ in
     tesseract4
     scantailor
     leptonica
-    cudatoolkit
+    # cudatoolkit
     # big non gui
     #texlive.combined.scheme-basic
     #texlive.combined.scheme-medium
@@ -103,6 +104,7 @@ in
     font-manager
     cinnamon.nemo
     gimp
+    pinta
     spotify
     qbittorrent
     yacreader
@@ -112,5 +114,7 @@ in
     blender
     tor-browser-bundle-bin
     vbam
+    smartgithg
+    lazygit
   ];
 }

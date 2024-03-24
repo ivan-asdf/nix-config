@@ -133,6 +133,6 @@ in
     ffmpegthumbnailer # video
     glow # markdown
     poppler_utils # pdf
-    ffmpeg # audio
+    # ffmpeg # audio
   ];
 }

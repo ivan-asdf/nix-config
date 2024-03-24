@@ -18,6 +18,8 @@
     #   "command+t" = "no_op";
     # };
     extraConfig = ''
+      term xterm-256color
+
       # IEC Power Symbols
       symbol_map U+23FB-U+23FE Symbols Nerd Font
 
