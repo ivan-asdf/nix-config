@@ -59,7 +59,7 @@ in
     lua-language-server
     # Python
     nodePackages.pyright
-    black
+    # black
     # Django
     djlint
     #ruff

@@ -23,20 +23,43 @@ let
     ephem
     pytz
     ffmpeg-python
+    pprintpp
+    pysrt
     #whisper
+    # Ai dependecies stuff
+    pytorch
     openai-whisper
+    datasets
+    accelerate
+    librosa
+    soundfile
+    sentencepiece
+    sacremoses
+    dtw-python
+    transformers
+    pydub
+    pyannote-audio
+    nltk
+    ctranslate2
+    av
+    # brouhaha
     #cmake
     #colour
     (callPackage ./packages/whoisdomain.nix { })
     (callPackage ./packages/colour-science.nix { })
     (callPackage ./packages/pywhispercpp.nix { })
     (callPackage ./packages/color-temp.nix { })
+    (callPackage ./packages/whisper-timestamped.nix { })
+    (callPackage ./packages/auditok.nix { })
+    (callPackage ./packages/whisperx.nix { })
+    (callPackage ./packages/faster-whisper.nix { })
 
   ];
   python_with_packages = (pkgs.python3.withPackages python-packages);
 in
 {
   home.packages = with pkgs; [
+    audacity
     # etc
     zip
     flameshot
@@ -85,6 +108,7 @@ in
     rustc
     cargo
     go
+    apacheKafka
     gnumake
     stdenv.cc.cc.lib
     nix-prefetch-git
