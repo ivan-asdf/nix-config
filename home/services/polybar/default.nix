@@ -177,11 +177,18 @@ in
 
       "module/xkeyboard" = {
         type = "internal/xkeyboard";
-        format = "<label-layout>";
+        format = "<label-layout><label-indicator>";
+
         label-layout = "  %icon% ";
         layout-icon-0 = "us;US";
         layout-icon-1 = "bg;BG";
         label-layout-background = "${clickable_background}";
+
+        # bright1  = #e82424
+        indicator-icon-0 = "caps lock;-CL;+CL";
+        indicator-icon-1 = "scroll lock;;+SL";
+        indicator-icon-2 = "num lock;-NL;+NL";
+        label-indicator-on = "%{B#e82424} %icon% %{B-}";
       };
       # They are inline inside bar
       #"module/menu-apps" = {
