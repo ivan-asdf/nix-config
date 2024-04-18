@@ -38,7 +38,7 @@ in
     Timer = {
       #OnUnitActiveSec = "5s";
       #Unit = "foo.service";
-      OnCalendar = "*-*-* *:00:00"; # every minute at 05 seconds
+      OnCalendar = "*-*-* *:00:00";
     };
 
     Unit = {

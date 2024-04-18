@@ -1,6 +1,7 @@
 {...} : {
   imports = [
     ./custom/change_wallpaper
+    ./custom/backup_nfs
     ./dunst
     ./picom
     ./polybar
