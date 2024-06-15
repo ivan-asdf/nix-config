@@ -31,7 +31,7 @@ let
     openai-whisper
     datasets
     accelerate
-    librosa
+    # librosa
     soundfile
     sentencepiece
     sacremoses
@@ -53,40 +53,44 @@ let
     (callPackage ./packages/auditok.nix { })
     (callPackage ./packages/whisperx.nix { })
     (callPackage ./packages/faster-whisper.nix { })
-
+    # (callPackage ./packages/pgsync.nix { })
   ];
   python_with_packages = (pkgs.python3.withPackages python-packages);
 in
 {
   home.packages = with pkgs; [
+    # Utilities ----------------------------------------------------------------
     audacity
-    # etc
     zip
-    flameshot
-    cloc
-    jq
-    feh
-    mpv
-    iotop # realtime read/white speed
-    zathura
+    p7zip
+    flameshot # Screen capture
+    cloc # Count lines of code
+    jq # Cmdline json processor
+    feh # Image viewer
+    mpv # Video player
+    iotop # Realtime disk read/white speed
+    zathura # Pdf viewer
     ssh-askpass-fullscreen
     lxqt.lxqt-openssh-askpass
     #calibre
-    pavucontrol
-    neofetch
-    yt-dlp
-    lsof
-    p7zip
-    pciutils
-    xdotool
-    xorriso # manipulate iso
+    pavucontrol # Audio control
+    neofetch # Quick sysinfo
+    yt-dlp # Youtube(& others) video downloader
+    lsof # List open files
+    pciutils # lspci (list pci devices)
+    xdotool # x11 actions
+    xorriso # Manipulate iso files
     exiftool # file info
-    testdisk # photorec
+    testdisk # photorec(raw disk recovery tool)
     ffmpeg_5-full
-    trashy
+    trashy # trash command
+    nmap
+    dig # dns trace
+    dnscrypt-proxy
+    nethogs
     # locksr where to put?!?
     betterlockscreen
-    # default utils improvements
+    # Default cmdline utils improvements
     eza # ls
     bat # cat
     fd # find
@@ -94,37 +98,73 @@ in
     xcp # cp
     ripgrep # grep
     du-dust # du
-    # dev
+    ## Nix specific stuff
+    nix-prefetch-git
+
+    # Development & Tools ------------------------------------------------------
+    ## Javascript
     nodejs
     typescript
-    python_with_packages
-    hatch
+    yarn
+    electron
+
+    ## Containers
     docker-compose
+
+    ## Database
     sqlitebrowser
-    dbeaver
+    dbeaver-bin
     # pgadmin4
-    ruby
+    redis
+    postgresql
+    # libsass
+    redisinsight
+    (callPackage ./packages/redis-commander.nix { })
+
+
+    ## Ruby
+    # ruby
     rubyPackages.rails
+
+    ## Rust
     rustc
     cargo
+
+    ## Golang
     go
+    golangci-lint
+    gofumpt
+    delve
+    gdlv
     apacheKafka
+    minikube
+    kubectl
+    logstash
+    pgsync
+
+    ## C/C++
     gnumake
     stdenv.cc.cc.lib
-    nix-prefetch-git
     cmake
-    #gnumake
-    sphinx
     pkg-config
+    # sphinx
+
+    ## Python
+    python_with_packages
+
+    ## Other
+    # cudatoolkit
     tesseract4
     scantailor
     leptonica
-    # cudatoolkit
-    # big non gui
+
+
+    # Productivity & Office ----------------------------------------------------
+
     #texlive.combined.scheme-basic
     #texlive.combined.scheme-medium
-    texlive.combined.scheme-full
-    # big gui software
+    # texlive.combined.scheme-full
+    obs-studio
     font-manager
     cinnamon.nemo
     gimp
@@ -134,11 +174,12 @@ in
     yacreader
     libreoffice-qt
     # google-chrome
-    # chromium
+    chromium
     blender
     tor-browser-bundle-bin
     vbam
-    smartgithg
+    # smartgithg
     lazygit
+    kdenlive
   ];
 }

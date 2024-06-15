@@ -11,9 +11,9 @@ bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
 
-# for the autosuggest cycle tru the entire sugestion not the local
+# Shift+Tab for accept the autosuggest cycle tru the entire sugestion not the local
 # by defualt you can you the forward key(C-f(emacs) or right arrow key)
-bindkey '^[[Z' autosuggest-accept
+# bindkey '^[[Z' autosuggest-accept
 
 # # Unbind Ctrl+Shift+p (which switches vim modes)
 # bindkey -s '^[[116;6u' ''

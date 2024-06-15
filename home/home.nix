@@ -23,16 +23,14 @@ in
   home.username = "ivan";
   home.homeDirectory = "/home/ivan";
 
-  #nixpkgs.config.allowUnfree = true;
-
   home.shellAliases = {
     ls = "eza --icons --group-directories-first";
     la = "ls -a";
     lla = "ls -al";
     grep = "grep --color=always";
     mux = "tmuxinator";
+    cp = "xcp";
   };
-
 
   home.pointerCursor = {
     #package = pkgs.catppuccin-cursors.latteLight;

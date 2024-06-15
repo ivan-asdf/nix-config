@@ -26,7 +26,7 @@ in
     #extraConfig = ":luafile ~/.config/nvim/init1.lua";
     extraLuaConfig = ''
       require('init')
-      ${theme} 
+      ${theme}
     ''
     ;
     ##plugins = with pkgs.vimPlugins; [
@@ -54,11 +54,13 @@ in
     nil # nix language lsp
     nixpkgs-fmt
     # Bash
-    nodePackages.bash-language-server
+    # nodePackages.bash-language-server
+    bash-language-server
     # Lua
     lua-language-server
     # Python
-    nodePackages.pyright
+    # nodePackages.pyright
+    pyright
     # black
     # Django
     djlint

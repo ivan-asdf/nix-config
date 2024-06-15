@@ -113,7 +113,16 @@ require 'lspconfig'.gopls.setup {
         end
       end,
     })
-  end
+  end,
+  settings = {
+    gopls = {
+      analyses = {
+        unusedparams = true,
+      },
+      staticcheck = true,
+      gofumpt = true,
+    },
+  },
 }
 local servers = { 'solargraph', 'cssls', 'clangd', 'bashls', 'texlab', 'tsserver' }
 for _, lsp in pairs(servers) do

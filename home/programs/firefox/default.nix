@@ -8,7 +8,7 @@ let
       url = "https://addons.mozilla.org/firefox/downloads/file/3993416/youtube_speed_control-1.1.4.xpi";
       sha256 = "377980ba62cfa24df269cf555437a21c381babb83d06c63b6c3f95afb2a5ffce";
     };
-    buildCommand = '' 
+    buildCommand = ''
       # this gets mapped to home-manager-files/.mozilla/firefox/{profile}/extensions
       dst="$out/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
       mkdir -p "$dst"
@@ -24,6 +24,7 @@ in
 {
   programs.firefox = {
     enable = true;
+    package = pkgs.firefox-bin;
     profiles.ivan-nix = {
       extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         ublock-origin
