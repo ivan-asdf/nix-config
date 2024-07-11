@@ -47,6 +47,8 @@ in
     TERMINAL = "kitty";
     XCURSOR_SIZE = "24";
     EZA_COLORS = "mp=38;5;30;4";
+    DOTNET_ROOT = "${pkgs.dotnet-sdk_8}";
+    PATH = "$PATH:$HOME/.dotnet/tools";
   };
 
   fonts.fontconfig.enable = true;

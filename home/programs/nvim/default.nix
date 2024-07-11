@@ -77,6 +77,7 @@ in
     # C/C++
     #sourcekit-lsp # C++
     clang-tools
+    bear
     cmake
     # Golang
     gopls
@@ -89,5 +90,9 @@ in
     # Tex
     texlab
   ];
+  # xdg.configFile."clang/config.yaml".text =
+  # ''
+  # ColumnLimit: 200
+  # '';
 }
 

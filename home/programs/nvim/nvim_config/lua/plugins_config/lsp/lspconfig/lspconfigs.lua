@@ -124,7 +124,7 @@ require 'lspconfig'.gopls.setup {
     },
   },
 }
-local servers = { 'solargraph', 'cssls', 'clangd', 'bashls', 'texlab', 'tsserver' }
+local servers = { 'solargraph', 'cssls', 'bashls', 'texlab', 'tsserver', 'clangd', 'csharp_ls' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
     flags = lsp_flags

@@ -134,6 +134,7 @@ in
     go
     golangci-lint
     gofumpt
+    wgo # live reloading
     delve
     gdlv
     apacheKafka
@@ -144,10 +145,20 @@ in
 
     ## C/C++
     gnumake
+    pkg-config
     stdenv.cc.cc.lib
     cmake
-    pkg-config
+    clang_18
+    doxygen
+    # sqlitecpp
+    # sqlite
     # sphinx
+
+    ## C#
+    # dotnetCorePackages.sdk_9_0
+    # dotnet-sdk # version 6
+    dotnet-sdk_8
+    csharp-ls
 
     ## Python
     python_with_packages
@@ -161,12 +172,13 @@ in
 
     # Productivity & Office ----------------------------------------------------
 
-    #texlive.combined.scheme-basic
-    #texlive.combined.scheme-medium
-    # texlive.combined.scheme-full
+    # texlive.combined.scheme-basic
+    # texlive.combined.scheme-medium
+    texlive.combined.scheme-full
     obs-studio
     font-manager
     cinnamon.nemo
+    ark
     gimp
     pinta
     spotify

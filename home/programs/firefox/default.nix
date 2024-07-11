@@ -48,7 +48,8 @@ in
         # Disable hardware acceleration
         # There is the minor issue of firefox not re-rendering
         # when unfocused and switching i3 workspaces
-        "layers.acceleration.disabled" = true;
+        # "layers.acceleration.disabled" = true;
+        "layers.acceleration.disabled" = false;
 
         "browser.fullscreen.autohide" = false;
 
