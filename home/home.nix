@@ -70,6 +70,18 @@ in
     enable = true;
     defaultApplications = {
       "application/pdf" = "org.pwmt.zathura.desktop";
+      "image/jpeg" = "feh.desktop";
+      "image/png" = "feh.desktop";
+      "image/gif" = "feh.desktop";
+      "image/bmp" = "feh.desktop";
+      "image/tiff" = "feh.desktop";
+      "image/svg+xml" = "feh.desktop";
+      "image/webp" = "feh.desktop";
+      "image/x-xbitmap" = "feh.desktop";
+      "image/x-icon" = "feh.desktop";
+      "image/heic" = "feh.desktop";
+      "image/heif" = "feh.desktop";
+      "image/avif" = "feh.desktop";
     };
   };
   # Have to enable otherwise the symlink get overriden by applications(transmission)

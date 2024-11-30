@@ -23,11 +23,29 @@ require 'lspconfig'.jsonls.setup {
 require 'lspconfig'.html.setup {
   capabilities = capabilities,
   filetypes = {
-    'html',
+    'html', 'templ'
+  },
+  init_options =
+  {
+    configurationSection = { "html", "css", "javascript" },
+    embeddedLanguages = {
+      css = true,
+      javascript = true
+    },
+    provideFormatter = true
   },
   settings = {
     html = {
-      printWidth = 80, -- Wrap lines at 80 characters
+      -- printWidth = 80, -- Wrap lines at 80 characters
+      format = {
+        templating = true,
+        wrapLineLength = 100,
+        wrapAttributes = 'aligned-multiple',
+      },
+      hover = {
+        documentation = true,
+        references = true,
+      },
     }
   }
 }
@@ -114,6 +132,7 @@ require 'lspconfig'.gopls.setup {
       end,
     })
   end,
+  -- filetypes = {"go", "gomod", "gowork", "gotmpl", "templ"},
   settings = {
     gopls = {
       analyses = {
@@ -124,9 +143,66 @@ require 'lspconfig'.gopls.setup {
     },
   },
 }
-local servers = { 'solargraph', 'cssls', 'bashls', 'texlab', 'tsserver', 'clangd', 'csharp_ls' }
+local servers = { 'solargraph', 'cssls', 'bashls', 'texlab', 'tsserver', 'clangd', 'csharp_ls', 'templ' }
 for _, lsp in pairs(servers) do
   require('lspconfig')[lsp].setup {
+    capabilities = capabilities,
     flags = lsp_flags
   }
+end
+
+vim.filetype.add({ extension = { templ = "templ" } })
+
+require('lspconfig').htmx.setup({
+  capabilities = capabilities,
+  filetypes = { "html", "templ" },
+})
+
+require 'lspconfig'.tailwindcss.setup {
+  settings = {
+    tailwindCSS = {
+      classAttributes = { "class", "className", "class:list", "classList", "ngClass" },
+      includeLanguages = {
+        eelixir = "html-eex",
+        eruby = "erb",
+        htmlangular = "html",
+        templ = "html"
+      },
+      lint = {
+        cssConflict = "warning",
+        invalidApply = "error",
+        invalidConfigPath = "error",
+        invalidScreen = "error",
+        invalidTailwindDirective = "error",
+        invalidVariant = "error",
+        recommendedVariantOrder = "warning"
+      },
+      validate = true
+    }
+  }
+}
+
+local custom_format = function()
+    if vim.bo.filetype == "templ" then
+        local bufnr = vim.api.nvim_get_current_buf()
+        local filename = vim.api.nvim_buf_get_name(bufnr)
+        local cmd = "templ fmt " .. vim.fn.shellescape(filename)
+
+        vim.fn.jobstart(cmd, {
+            on_exit = function()
+                -- Reload the buffer only if it's still the current buffer
+                if vim.api.nvim_get_current_buf() == bufnr then
+                    vim.cmd('e!')
+                end
+            end,
+        })
+    else
+        vim.lsp.buf.format()
+    end
+end
+
+local on_attach = function(client, bufnr)
+    local opts = { buffer = bufnr, remap = false }
+    -- other configuration options
+    vim.keymap.set("n", "<leader>lf", custom_format, opts)
 end

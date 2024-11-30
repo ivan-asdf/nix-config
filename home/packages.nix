@@ -2,12 +2,10 @@
 let
   python-packages = p: with p; [
     toml
-    requests
-    pyperclip
+    requests pyperclip
     lark
     django
-    django-celery-results
-    watchdog
+    django-celery-results watchdog
     celery
     psycopg2
     validators
@@ -19,7 +17,7 @@ let
     opencv4
     #tk
     pygobject3
-    wxpython
+    # wxpython # not supported for 3.12
     ephem
     pytz
     ffmpeg-python
@@ -28,6 +26,7 @@ let
     #whisper
     # Ai dependecies stuff
     pytorch
+    torchvision
     openai-whisper
     datasets
     accelerate
@@ -45,6 +44,10 @@ let
     # brouhaha
     #cmake
     #colour
+    pyautogui
+    pynput
+    keyboard
+    pyperclip
     (callPackage ./packages/whoisdomain.nix { })
     (callPackage ./packages/colour-science.nix { })
     (callPackage ./packages/pywhispercpp.nix { })
@@ -55,7 +58,7 @@ let
     (callPackage ./packages/faster-whisper.nix { })
     # (callPackage ./packages/pgsync.nix { })
   ];
-  python_with_packages = (pkgs.python3.withPackages python-packages);
+  python_with_packages = (pkgs.python311.withPackages python-packages);
 in
 {
   home.packages = with pkgs; [
@@ -67,6 +70,10 @@ in
     cloc # Count lines of code
     jq # Cmdline json processor
     feh # Image viewer
+    # imlib2
+    imlib2Full
+    libtiff
+    # dcraw
     mpv # Video player
     iotop # Realtime disk read/white speed
     zathura # Pdf viewer
@@ -82,7 +89,7 @@ in
     xorriso # Manipulate iso files
     exiftool # file info
     testdisk # photorec(raw disk recovery tool)
-    ffmpeg_5-full
+    ffmpeg_7-full
     trashy # trash command
     nmap
     dig # dns trace
@@ -93,6 +100,7 @@ in
     # Default cmdline utils improvements
     eza # ls
     bat # cat
+    bat-extras.batgrep
     fd # find
     duf # du
     xcp # cp
@@ -107,6 +115,8 @@ in
     typescript
     yarn
     electron
+    nodePackages.postcss-cli
+    tailwindcss
 
     ## Containers
     docker-compose
@@ -114,12 +124,16 @@ in
     ## Database
     sqlitebrowser
     dbeaver-bin
+    mysql-workbench
+    beekeeper-studio
     # pgadmin4
     redis
     postgresql
+    mysql
     # libsass
     redisinsight
     (callPackage ./packages/redis-commander.nix { })
+    # (callPackage ./packages/redisinsight.nix { })
 
 
     ## Ruby
@@ -142,6 +156,10 @@ in
     kubectl
     logstash
     pgsync
+    sqlc
+    go-migrate
+    atlas
+    go-task
 
     ## C/C++
     gnumake
@@ -163,6 +181,9 @@ in
     ## Python
     python_with_packages
 
+    # Game engine
+    unityhub
+
     ## Other
     # cudatoolkit
     tesseract4
@@ -172,6 +193,7 @@ in
 
     # Productivity & Office ----------------------------------------------------
 
+    vscode
     # texlive.combined.scheme-basic
     # texlive.combined.scheme-medium
     texlive.combined.scheme-full
@@ -180,7 +202,10 @@ in
     cinnamon.nemo
     ark
     gimp
+    rawtherapee
+    darktable
     pinta
+    krita
     spotify
     qbittorrent
     yacreader
@@ -193,5 +218,11 @@ in
     # smartgithg
     lazygit
     kdenlive
+
+    wofi
   ];
+
+  # nixpkgs.config.permittedInsecurePackages = [
+  #   "dcraw"
+  # ];
 }

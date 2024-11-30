@@ -29,11 +29,11 @@ in
       ${theme}
     ''
     ;
-    ##plugins = with pkgs.vimPlugins; [
-    #lualine-nvim
-    #gitsigns-nvim
-    #nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
-    #];
+    plugins = with pkgs.vimPlugins; [
+      # lualine-nvim
+      # gitsigns-nvim
+      nvim-treesitter.withAllGrammars #couse file readonly error blabla inside nvim
+    ];
     /*
       generatedConfigs = {
       lua = "dasdas";
@@ -54,8 +54,8 @@ in
     nil # nix language lsp
     nixpkgs-fmt
     # Bash
-    # nodePackages.bash-language-server
-    bash-language-server
+    nodePackages.bash-language-server
+    # bash-language-server
     # Lua
     lua-language-server
     # Python
@@ -82,11 +82,13 @@ in
     # Golang
     gopls
     # Css
-    nodePackages.vscode-css-languageserver-bin
+    # nodePackages.vscode-css-languageserver-bin # replaced by extracted
     # Json
-    nodePackages.vscode-json-languageserver-bin
+    # nodePackages.vscode-json-languageserver-bin # replaced by extracred
     # Html
     nodePackages.vscode-langservers-extracted
+    # Tailwindcss
+    tailwindcss-language-server
     # Tex
     texlab
   ];

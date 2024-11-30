@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }: {
+{ config, pkgs, lib, ... }: {
   imports =
     [
       # Include the results of the hardware scan.
@@ -111,8 +111,21 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  hardware.pulseaudio = {
+    enable = true;
+    # support32Bit = true;
+  };
   hardware.enableAllFirmware = true;
+  # security.rtkit.enable = true;
+  # services.pipewire = {
+  #   enable = true;
+  #   alsa.enable = true;
+  #   alsa.support32Bit = true;
+  #   pulse.enable = true;
+  #   # If you want to use JACK applications, uncomment this
+  #   #jack.enable = true;
+  # };
+
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
@@ -122,7 +135,7 @@
   #  Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.ivan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "docker" ];
+    extraGroups = [ "wheel" "video" "audio" "docker" ];
     uid = 1000;
   };
   nix.settings.trusted-users = [ "root @wheel" ];
@@ -174,7 +187,17 @@
   hardware.nvidia =
     {
       package = config.boot.kernelPackages.nvidiaPackages.production;
+      # package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      #   version = "555.42.02";
+      #   sha256_64bit = "sha256-k7cI3ZDlKp4mT46jMkLaIrc2YUx1lh1wj/J4SVSHWyk=";
+      #   sha256_aarch64 = lib.fakeSha256;
+      #   openSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      #   settingsSha256 = "sha256-rtDxQjClJ+gyrCLvdZlT56YyHQ4sbaL+d5tL4L4VfkA=";
+      #   persistencedSha256 = lib.fakeSha256;
+      #
+      # };
       powerManagement.enable = true;
+      modesetting.enable = true;
     };
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -247,4 +270,5 @@
     wantedBy = [ "graphical-session.target" ];
     };
   */
+  services.gnome.gnome-keyring.enable = true;
 }
