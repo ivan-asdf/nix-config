@@ -110,21 +110,21 @@
   # services.printing.enable = true;
 
   # Enable sound.
-  sound.enable = true;
+  # sound.enable = true;
   hardware.pulseaudio = {
     enable = true;
     # support32Bit = true;
   };
   hardware.enableAllFirmware = true;
   # security.rtkit.enable = true;
-  # services.pipewire = {
-  #   enable = true;
-  #   alsa.enable = true;
-  #   alsa.support32Bit = true;
-  #   pulse.enable = true;
-  #   # If you want to use JACK applications, uncomment this
-  #   #jack.enable = true;
-  # };
+  services.pipewire = {
+    enable = false;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
 
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -183,7 +183,7 @@
   #nixpkgs.config.allowBroken = true;
   nixpkgs.config.allowUnfree = true;
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
   hardware.nvidia =
     {
       package = config.boot.kernelPackages.nvidiaPackages.production;

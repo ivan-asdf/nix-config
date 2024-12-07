@@ -34,7 +34,7 @@ let
     soundfile
     sentencepiece
     sacremoses
-    dtw-python
+    # dtw-python
     transformers
     pydub
     pyannote-audio
@@ -129,7 +129,8 @@ in
     # pgadmin4
     redis
     postgresql
-    mysql
+    # mysql
+    mariadb
     # libsass
     redisinsight
     (callPackage ./packages/redis-commander.nix { })
@@ -199,7 +200,7 @@ in
     texlive.combined.scheme-full
     obs-studio
     font-manager
-    cinnamon.nemo
+    nemo
     ark
     gimp
     rawtherapee
@@ -207,7 +208,8 @@ in
     pinta
     krita
     spotify
-    qbittorrent
+    # qbittorrent
+    transmission_4
     yacreader
     libreoffice-qt
     # google-chrome

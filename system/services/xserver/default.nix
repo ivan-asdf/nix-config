@@ -44,7 +44,7 @@
             password-border-width = 4px
           '';
         };
-        defaultSession = "none+i3";
+        # defaultSession = "none+i3";
         # defaultSession = "hyprland";
       };
       xkb = {
@@ -53,7 +53,7 @@
       };
     };
 
-  # services.displayManager = {
+  services.displayManager = {
   # these go inside the xsession-wrapper
   # sessionCommands = ''
   #   #   # default values 660 25
@@ -87,6 +87,6 @@
   #     password-border-width = 4px
   #   '';
   # };
-  # defaultSession = "none+i3";
-  # };
+  defaultSession = "none+i3";
+  };
 }

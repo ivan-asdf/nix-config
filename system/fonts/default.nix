@@ -20,7 +20,7 @@
       # Sans
       helvetica-neue-lt-std
       # Other
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
     ];
     enableDefaultPackages = false;
     fontconfig = {
