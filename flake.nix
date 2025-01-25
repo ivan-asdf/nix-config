@@ -25,7 +25,7 @@
           # ];
           # allowBroken = true;
         };
-        overlays = [ nur.overlay ];
+        overlays = [ nur.overlays.default ];
       };
     in
     {

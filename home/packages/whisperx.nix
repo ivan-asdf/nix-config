@@ -5,6 +5,6 @@ buildPythonPackage rec {
   doCheck = false;
   src = pkgs.fetchurl {
     url = "https://github.com/m-bain/whisperX/archive/refs/heads/main.zip";
-    sha256 = "sha256-cReysZkLz/98eY01hNNTNFI7Cl+Q13UIRFTMH8ErLdo=";
+    sha256 = "sha256-9T9Enfc272VeiYxaZpcsdo+74/90usKJ2nAMlGOBSUI=";
   };
 }

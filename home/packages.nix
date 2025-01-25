@@ -179,6 +179,10 @@ in
     dotnet-sdk_8
     csharp-ls
 
+    ## Php
+    php84
+    php84Packages.composer
+
     ## Python
     python_with_packages
 
@@ -208,8 +212,8 @@ in
     pinta
     krita
     spotify
-    # qbittorrent
-    transmission_4
+    qbittorrent
+    # transmission_4
     yacreader
     libreoffice-qt
     # google-chrome
@@ -222,6 +226,7 @@ in
     kdenlive
 
     wofi
+    blueman
   ];
 
   # nixpkgs.config.permittedInsecurePackages = [

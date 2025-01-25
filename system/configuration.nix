@@ -125,6 +125,7 @@
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
+  hardware.bluetooth.enable = true;
 
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -169,6 +170,7 @@
     # vpn
     networkmanager-l2tp
     networkmanagerapplet
+    bluez
   ];
   programs.ssh.askPassword = "";
   programs.zsh.enable = true;

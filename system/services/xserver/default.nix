@@ -19,7 +19,7 @@
           ${pkgs.xorg.xset}/bin/xset s off
         '';
         lightdm.greeters.mini = {
-          enable = true;
+          enable = false;
           user = "ivan";
           extraConfig = ''
             [greeter]
@@ -44,8 +44,11 @@
             password-border-width = 4px
           '';
         };
+        sddm = {
+          enable = true;
+        };
         # defaultSession = "none+i3";
-        # defaultSession = "hyprland";
+        defaultSession = "hyprland";
       };
       xkb = {
         layout = "us,bg(phonetic)";
@@ -87,6 +90,7 @@
   #     password-border-width = 4px
   #   '';
   # };
-  defaultSession = "none+i3";
+  # defaultSession = "none+i3";
+  # defaultSession = "hyprland";
   };
 }
